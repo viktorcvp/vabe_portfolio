@@ -1,5 +1,5 @@
-import Alpine from 'alpinejs';
-import '../css/app.css';
+//import Alpine from 'alpinejs';
+//import '../css/app.css';
 
 import { navigation } from './modules/navigation.js';
 import { contactForm } from './modules/contact-form.js';
