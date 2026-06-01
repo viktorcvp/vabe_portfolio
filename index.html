@@ -3,40 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="VibeCode — вайбкодинг: быстрые лендинги и сайты-портфолио с AI. Статика, Tailwind, деплой на GitHub Pages."
-    />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#4c1d95" />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="VibeCode — вайбкодинг под заказ" />
-    <meta
-      property="og:description"
-      content="Лендинги и портфолио за дни, не недели. AI + чистый код + GitHub Pages."
-    />
-    <meta property="og:locale" content="ru_RU" />
-
+    <meta name="description" content="VibeCode — вайбкодинг: быстрые лендинги и сайты-портфолио с AI." />
     <title>VibeCode — вайбкодинг · лендинги и портфолио</title>
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Alpine.js CDN -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
     <script>
       tailwind.config = {
         theme: {
@@ -47,372 +18,152 @@
             },
             colors: {
               vibe: {
-                50: '#f5f3ff',
-                100: '#ede9fe',
-                200: '#ddd6fe',
                 300: '#c4b5fd',
                 400: '#a78bfa',
                 500: '#8b5cf6',
                 600: '#7c3aed',
-                700: '#6d28d9',
-                800: '#5b21b6',
                 900: '#4c1d95',
               },
-            },
-          },
-        },
+              glow: {
+                cyan: '#22d3ee',
+                pink: '#f472b6'
+              }
+            }
+          }
+        }
       }
     </script>
 
+    <!-- Alpine.js (CDN) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
     <style>
       [x-cloak] { display: none !important; }
-      
       .mesh-bg {
-        background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+        background-color: #020617;
+        background-image:
+          radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139, 92, 246, 0.35), transparent),
+          radial-gradient(ellipse 60% 40% at 100% 0%, rgba(34, 211, 238, 0.12), transparent);
       }
-      
-      .gradient-text {
-        background: linear-gradient(135deg, #a78bfa 0%, #34d399 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-      
       .card-glass {
-        background: rgba(255, 255, 255, 0.03);
+        background: rgba(255, 255, 255, 0.05);
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 1rem;
       }
-      
-      .btn-primary {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.75rem 1.5rem;
-        background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
-        color: white;
-        font-weight: 600;
-        border-radius: 0.5rem;
-        transition: all 0.2s;
-        border: none;
-        cursor: pointer;
+      .reveal-hidden {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
       }
-      
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
-      }
-      
-      .btn-ghost {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.75rem 1.5rem;
-        background: rgba(255, 255, 255, 0.05);
-        color: white;
-        font-weight: 600;
-        border-radius: 0.5rem;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        transition: all 0.2s;
-        cursor: pointer;
-      }
-      
-      .btn-ghost:hover {
-        background: rgba(255, 255, 255, 0.1);
-      }
-      
-      .badge {
-        display: inline-flex;
-        align-items: center;
-        padding: 0.25rem 0.75rem;
-        background: rgba(139, 92, 246, 0.2);
-        border: 1px solid rgba(139, 92, 246, 0.3);
-        border-radius: 9999px;
-        font-size: 0.875rem;
-        color: #c4b5fd;
-      }
-      
-      .input-field {
-        width: 100%;
-        padding: 0.75rem;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 0.5rem;
-        color: white;
-        outline: none;
-        transition: border-color 0.2s;
-      }
-      
-      .input-field:focus {
-        border-color: #8b5cf6;
-      }
-      
-      .label-field {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-size: 0.875rem;
-        font-weight: 500;
-        color: #e2e8f0;
-      }
-      
-      .section-pad {
-        padding: 5rem 1rem;
-      }
-      
-      .container-narrow {
-        max-width: 64rem;
-        margin: 0 auto;
-        padding: 0 1rem;
-      }
-      
-      .sr-only-focusable:focus {
-        position: static;
-        width: auto;
-        height: auto;
-        padding: 1rem;
-        clip: auto;
-      }
-      
-      .logo-link {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        text-decoration: none;
-      }
-      
-      .logo {
-        display: block;
-        height: 2.25rem;
-        width: auto;
-        object-fit: contain;
-        transition: transform 0.2s ease;
-      }
-      
-      .logo-link:hover .logo {
-        transform: scale(1.05);
-      }
-      
-      @media (max-width: 640px) {
-        .logo { height: 1.75rem; }
+      .reveal-visible {
+        opacity: 1;
+        transform: translateY(0);
       }
     </style>
   </head>
 
-  <body class="mesh-bg min-h-screen text-slate-300" x-data="appData()" x-init="init()">
+  <body class="mesh-bg text-slate-100 font-sans antialiased min-h-screen" x-data="siteData()">
     
-    <!-- Skip link -->
-    <a
-      href="#main"
-      class="sr-only-focusable fixed left-4 top-4 z-[100] rounded-lg bg-vibe-600 px-4 py-2 text-sm font-semibold text-white"
-    >
-      Перейти к содержимому
-    </a>
-
     <!-- Header -->
-    <header
-      class="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-slate-950/80 backdrop-blur-lg"
-      x-data="{ open: false, activeSection: 'hero' }"
-      @scroll.window="activeSection = getActiveSection()"
-      role="banner"
-    >
-      <div class="container-narrow flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+    <header class="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-slate-950/80 backdrop-blur-md">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
         
-        <!-- Logo -->
-        <a href="#hero" class="logo-link group">
+        <!-- Логотип + Фото -->
+        <a href="#hero" class="flex items-center gap-3 group">
           <img 
             src="/vabe_portfolio/img/phone.jpg" 
             alt="VibeCode" 
-            class="logo h-9 w-auto object-contain transition-transform group-hover:scale-105" 
-            width="45" 
-            height="70"
-            loading="eager"
+            class="h-10 w-10 rounded-full object-cover border-2 border-vibe-400 transition-transform group-hover:scale-105" 
+            width="40" 
+            height="40"
           >
           <span class="font-display text-lg font-bold tracking-tight text-white">
             Vibe<span class="text-vibe-400">Code</span>
           </span>
         </a>
 
-        <!-- Desktop Nav -->
-        <nav class="hidden items-center gap-8 md:flex" aria-label="Основная навигация">
-          <template x-for="link in navLinks" :key="link.id">
-            <a
-              :href="'#' + link.id"
-              class="text-sm font-medium transition-colors hover:text-vibe-400"
-              :class="activeSection === link.id ? 'text-vibe-400' : 'text-slate-300'"
-              x-text="link.label"
-            ></a>
+        <!-- Меню -->
+        <nav class="hidden items-center gap-8 md:flex">
+          <template x-for="link in nav" :key="link.id">
+            <a :href="'#' + link.id" class="text-sm font-medium text-slate-400 hover:text-white transition" x-text="link.label"></a>
           </template>
         </nav>
 
-        <div class="flex items-center gap-3">
-          <a href="#contact" class="btn-primary hidden text-sm sm:inline-flex"> Оставить заявку </a>
-          <button
-            type="button"
-            class="inline-flex rounded-lg border border-white/10 p-2 text-slate-300 md:hidden"
-            :aria-expanded="open"
-            aria-controls="mobile-menu"
-            aria-label="Меню"
-            @click="open = !open"
-          >
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path
-                x-show="!open"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-              <path
-                x-show="open"
-                x-cloak
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </div>
+        <!-- Мобильная кнопка -->
+        <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-2 text-slate-400 hover:text-white">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            <path x-show="mobileMenuOpen" x-cloak stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
       </div>
 
-      <!-- Mobile Menu -->
-      <div
-        x-show="open"
-        x-transition
-        x-cloak
-        @click.away="open = false"
-        class="border-t border-white/5 bg-slate-950/95 md:hidden"
-      >
-        <nav class="flex flex-col gap-1 px-4 py-4" aria-label="Мобильное меню">
-          <template x-for="link in navLinks" :key="link.id">
-            <a
-              :href="'#' + link.id"
-              class="rounded-lg px-3 py-2 text-slate-300 hover:bg-white/5 hover:text-white"
-              @click="open = false"
-              x-text="link.label"
-            ></a>
+      <!-- Мобильное меню -->
+      <div x-show="mobileMenuOpen" x-transition x-cloak class="md:hidden border-t border-white/5 bg-slate-950/95">
+        <nav class="flex flex-col p-4 gap-2">
+          <template x-for="link in nav" :key="link.id">
+            <a :href="'#' + link.id" @click="mobileMenuOpen = false" class="rounded-lg px-3 py-2 text-slate-300 hover:bg-white/5" x-text="link.label"></a>
           </template>
-          <a href="#contact" class="btn-primary mt-2 w-full" @click="open = false"> Заявка </a>
         </nav>
       </div>
     </header>
 
     <main id="main">
       <!-- Hero -->
-      <section
-        id="hero"
-        class="relative overflow-hidden pt-28 section-pad pb-16"
-        aria-labelledby="hero-title"
-      >
-        <div class="container-narrow relative">
-          <p class="badge mb-6">
+      <section id="hero" class="pt-28 pb-16 sm:pt-36 sm:pb-24">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
+          <p class="inline-flex items-center rounded-full border border-vibe-400/30 bg-vibe-500/10 px-3 py-1 text-xs font-medium text-vibe-200 mb-6">
             Вайбкодинг · AI + чистый код
           </p>
-          <h1
-            id="hero-title"
-            class="font-display max-w-3xl text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl"
-          >
-            Сайты, которые
-            <span class="gradient-text">продают вашу экспертизу</span>
-            — за дни, не недели
+          <h1 class="font-display text-4xl font-bold tracking-tight text-white sm:text-6xl">
+            Сайты, которые <span class="bg-gradient-to-r from-vibe-300 via-glow-cyan to-glow-pink bg-clip-text text-transparent">продают вашу экспертизу</span> — за дни, не недели
           </h1>
-          <p class="mt-6 max-w-2xl text-lg text-slate-400">
-            Делаю лендинги и портфолио на HTML, Tailwind и Alpine.js. Статика на GitHub Pages —
-            быстро, безопасно, без ежемесячного хостинга.
+          <p class="mt-6 text-lg text-slate-400 max-w-2xl mx-auto">
+            Делаю лендинги и портфолио на HTML, Tailwind и Alpine.js. Статика на GitHub Pages — быстро, безопасно, без ежемесячного хостинга.
           </p>
-
-          <div class="mt-10 flex flex-wrap items-center gap-4">
-            <a href="#contact" class="btn-primary"> Бесплатная консультация </a>
-            <a href="#portfolio" class="btn-ghost"> Смотреть работы </a>
+          <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <a href="#contact" class="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-vibe-600 to-vibe-500 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:from-vibe-500 hover:to-vibe-400 transition">
+              Бесплатная консультация
+            </a>
+            <a href="#portfolio" class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-slate-200 transition hover:border-vibe-400/50 hover:bg-white/10">
+              Смотреть работы
+            </a>
           </div>
-
-          <dl class="mt-16 grid grid-cols-2 gap-6 sm:grid-cols-4">
-            <div class="card-glass p-4 text-center">
-              <dt class="text-xs uppercase tracking-wider text-slate-500">Срок лендинга</dt>
-              <dd class="mt-1 font-display text-2xl font-bold text-white">2–5 дн</dd>
-            </div>
-            <div class="card-glass p-4 text-center">
-              <dt class="text-xs uppercase tracking-wider text-slate-500">Стек</dt>
-              <dd class="mt-1 font-display text-2xl font-bold text-vibe-300">Static</dd>
-            </div>
-            <div class="card-glass p-4 text-center">
-              <dt class="text-xs uppercase tracking-wider text-slate-500">Проектов</dt>
-              <dd class="mt-1 font-display text-2xl font-bold text-white">12+</dd>
-            </div>
-            <div class="card-glass p-4 text-center">
-              <dt class="text-xs uppercase tracking-wider text-slate-500">Правки</dt>
-              <dd class="mt-1 font-display text-2xl font-bold text-emerald-400">7 дн</dd>
-            </div>
-          </dl>
         </div>
       </section>
 
       <!-- Services -->
-      <section id="services" class="section-pad border-t border-white/5" aria-labelledby="services-title">
-        <div class="container-narrow">
-          <div class="max-w-2xl">
-            <h2 id="services-title" class="font-display text-3xl font-bold text-white sm:text-4xl">
-              Что делаю
-            </h2>
-            <p class="mt-4 text-slate-400">
-              Фокус на конверсию: понятный оффер, социальное доказательство и форма без лишнего
-              трения.
-            </p>
-          </div>
-
-          <div class="mt-12 grid gap-6 md:grid-cols-3">
-            <template x-for="(item, i) in services" :key="item.title">
-              <article
-                class="card-glass group p-6 transition hover:border-vibe-500/40"
-              >
-                <span class="text-3xl" aria-hidden="true" x-text="item.icon"></span>
+      <section id="services" class="py-20 border-t border-white/5">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <h2 class="font-display text-3xl font-bold text-white sm:text-4xl mb-12 text-center">Что делаю</h2>
+          <div class="grid gap-6 md:grid-cols-3">
+            <template x-for="(item, i) in services" :key="i">
+              <div class="card-glass p-6 rounded-2xl">
+                <span class="text-3xl" x-text="item.icon"></span>
                 <h3 class="mt-4 font-display text-xl font-semibold text-white" x-text="item.title"></h3>
-                <p class="mt-2 text-sm leading-relaxed text-slate-400" x-text="item.desc"></p>
-              </article>
+                <p class="mt-2 text-sm text-slate-400" x-text="item.desc"></p>
+              </div>
             </template>
           </div>
         </div>
       </section>
 
       <!-- Portfolio -->
-      <section id="portfolio" class="section-pad bg-slate-900/40" aria-labelledby="portfolio-title">
-        <div class="container-narrow">
-          <div class="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <h2 id="portfolio-title" class="font-display text-3xl font-bold text-white sm:text-4xl">
-                Кейсы
-              </h2>
-              <p class="mt-4 text-slate-400">Демо-проекты из этой же рабочей области.</p>
-            </div>
-            <a href="#contact" class="btn-ghost text-sm"> Нужен похожий? Написать </a>
-          </div>
-
-          <div class="mt-12 grid gap-6 md:grid-cols-3">
-            <template x-for="(project, i) in projects" :key="project.title">
-              <a
-                :href="project.href"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="card-glass group overflow-hidden transition hover:-translate-y-1"
-              >
-                <div
-                  class="flex h-40 items-end bg-gradient-to-br p-6 from-vibe-600 to-vibe-800"
-                >
-                  <span class="badge" x-text="project.type"></span>
+      <section id="portfolio" class="py-20 bg-slate-900/40">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <h2 class="font-display text-3xl font-bold text-white sm:text-4xl mb-12 text-center">Кейсы</h2>
+          <div class="grid gap-6 md:grid-cols-3">
+            <template x-for="(project, i) in projects" :key="i">
+              <a href="#" class="card-glass rounded-2xl overflow-hidden group block transition hover:-translate-y-1">
+                <div class="h-40 bg-gradient-to-br from-vibe-600 to-vibe-800 flex items-end p-4">
+                  <span class="inline-flex items-center rounded-full border border-vibe-400/30 bg-vibe-500/10 px-3 py-1 text-xs font-medium text-vibe-200" x-text="project.type"></span>
                 </div>
                 <div class="p-6">
-                  <h3
-                    class="font-display text-lg font-semibold text-white group-hover:text-vibe-300"
-                    x-text="project.title"
-                  ></h3>
+                  <h3 class="font-display text-lg font-semibold text-white" x-text="project.title"></h3>
                   <p class="mt-1 text-xs text-slate-500" x-text="project.stack"></p>
-                  <span class="mt-4 inline-flex items-center gap-1 text-sm text-vibe-400">
-                    Открыть демо
-                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </span>
                 </div>
               </a>
             </template>
@@ -421,110 +172,51 @@
       </section>
 
       <!-- Contact -->
-      <section id="contact" class="section-pad border-t border-white/5" aria-labelledby="contact-title">
-        <div class="container-narrow grid gap-12 lg:grid-cols-2">
-          <div>
-            <h2 id="contact-title" class="font-display text-3xl font-bold text-white sm:text-4xl">
-              Оставить заявку
-            </h2>
-            <p class="mt-4 text-slate-400">
-              Опишите задачу — отвечу в Telegram или на email в течение 24 часов.
-            </p>
-            <ul class="mt-8 space-y-3 text-sm text-slate-400">
-              <li>
-                Email:
-                <a class="text-vibe-300 hover:underline" href="mailto:dffggg2013@yandex.by"
-                  >dffggg2013@yandex.by</a
-                >
-              </li>
-              <li>
-                Telegram:
-                <a
-                  class="text-vibe-300 hover:underline"
-                  href="https://t.me/viktorystel"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >@viktorystel</a
-                >
-              </li>
-            </ul>
+      <section id="contact" class="py-20 border-t border-white/5">
+        <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div class="card-glass rounded-2xl p-8 md:p-12">
+            <h2 class="font-display text-3xl font-bold text-white mb-8 text-center">Оставить заявку</h2>
+            
+            <form @submit.prevent="submitForm" class="space-y-6 max-w-lg mx-auto">
+              <div>
+                <label class="block text-sm font-medium text-slate-300 mb-1">Имя *</label>
+                <input type="text" x-model="form.name" class="w-full rounded-xl border border-white/10 bg-slate-900/80 px-4 py-3 text-white focus:border-vibe-400 focus:ring-1 focus:ring-vibe-400 outline-none" required>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-300 mb-1">Email *</label>
+                <input type="email" x-model="form.email" class="w-full rounded-xl border border-white/10 bg-slate-900/80 px-4 py-3 text-white focus:border-vibe-400 focus:ring-1 focus:ring-vibe-400 outline-none" required>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-300 mb-1">Задача *</label>
+                <textarea x-model="form.message" rows="4" class="w-full rounded-xl border border-white/10 bg-slate-900/80 px-4 py-3 text-white focus:border-vibe-400 focus:ring-1 focus:ring-vibe-400 outline-none" required></textarea>
+              </div>
+              <button type="submit" class="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-vibe-600 to-vibe-500 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:from-vibe-500 hover:to-vibe-400 transition disabled:opacity-50" :disabled="loading">
+                <span x-show="!loading">Отправить заявку</span>
+                <span x-show="loading">Отправка…</span>
+              </button>
+              <p x-show="success" class="text-center text-emerald-400 text-sm mt-2">Спасибо! Заявка отправлена (демо).</p>
+            </form>
           </div>
-
-          <form
-            class="card-glass relative p-6 sm:p-8"
-            x-data="contactForm()"
-            @submit.prevent="submit()"
-            novalidate
-          >
-            <div class="space-y-5">
-              <div>
-                <label for="name" class="label-field">Имя <span class="text-vibe-400">*</span></label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  class="input-field"
-                  required
-                  minlength="2"
-                  autocomplete="name"
-                  x-model="fields.name"
-                />
-              </div>
-
-              <div>
-                <label for="email" class="label-field">Email <span class="text-vibe-400">*</span></label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  class="input-field"
-                  required
-                  autocomplete="email"
-                  x-model="fields.email"
-                />
-              </div>
-
-              <div>
-                <label for="message" class="label-field">Задача <span class="text-vibe-400">*</span></label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  class="input-field resize-y"
-                  required
-                  x-model="fields.message"
-                  placeholder="Ниша, сроки, референсы…"
-                ></textarea>
-              </div>
-            </div>
-
-            <button type="submit" class="btn-primary mt-6 w-full" :disabled="isSubmitting">
-              <span x-show="!isSubmitting">Отправить заявку</span>
-              <span x-show="isSubmitting" x-cloak>Отправка…</span>
-            </button>
-          </form>
         </div>
       </section>
     </main>
 
-    <footer class="border-t border-white/5 py-10" role="contentinfo">
-      <div class="container-narrow flex flex-col items-center justify-between gap-4 px-4 sm:flex-row sm:px-6 lg:px-8">
-        <p class="text-sm text-slate-500">
-          © <span x-text="year"></span> VibeCode. Вайбкодинг под заказ.
-        </p>
-        <a href="#hero" class="text-sm text-slate-500 hover:text-vibe-300"> Наверх ↑ </a>
-      </div>
+    <footer class="border-t border-white/5 py-10 text-center text-slate-500 text-sm">
+      <p>© <span x-text="new Date().getFullYear()"></span> VibeCode. Вайбкодинг под заказ.</p>
     </footer>
 
-    <!-- Main App Script -->
+    <!-- Данные и логика (вместо удаленных файлов) -->
     <script>
-      function appData() {
+      function siteData() {
         return {
-          year: new Date().getFullYear(),
-          navLinks: [
+          mobileMenuOpen: false,
+          loading: false,
+          success: false,
+          form: { name: '', email: '', message: '' },
+          nav: [
             { id: 'hero', label: 'Главная' },
             { id: 'services', label: 'Услуги' },
-            { id: 'portfolio', label: 'Портфолио' },
+            { id: 'portfolio', label: 'Кейсы' },
             { id: 'contact', label: 'Контакты' },
           ],
           services: [
@@ -533,27 +225,19 @@
             { icon: '⚡', title: 'Доработка', desc: 'Исправление ошибок, улучшение скорости, добавление функционала.' },
           ],
           projects: [
-            { title: 'Лендинг курса', type: 'Лендинг', stack: 'HTML + Tailwind', href: '#' },
-            { title: 'Портфолио дизайнера', type: 'Портфолио', stack: 'HTML + Alpine.js', href: '#' },
-            { title: 'Сайт агентства', type: 'Корпоративный', stack: 'Static', href: '#' },
+            { title: 'Лендинг курса', type: 'Лендинг', stack: 'HTML + Tailwind' },
+            { title: 'Портфолио дизайнера', type: 'Портфолио', stack: 'HTML + Alpine.js' },
+            { title: 'Сайт агентства', type: 'Корпоративный', stack: 'Static' },
           ],
-          getActiveSection() {
-            return this.activeSection || 'hero';
-          },
-        }
-      }
-
-      function contactForm() {
-        return {
-          fields: { name: '', email: '', message: '' },
-          isSubmitting: false,
-          submit() {
-            this.isSubmitting = true;
+          submitForm() {
+            this.loading = true;
+            // Эмуляция отправки
             setTimeout(() => {
-              alert('Спасибо! Заявка отправлена (демо режим)');
-              this.fields = { name: '', email: '', message: '' };
-              this.isSubmitting = false;
-            }, 1000);
+              this.loading = false;
+              this.success = true;
+              this.form = { name: '', email: '', message: '' };
+              setTimeout(() => this.success = false, 3000);
+            }, 1500);
           }
         }
       }
