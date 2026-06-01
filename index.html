@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="VibeCode — вайбкодинг: быстрые лендинги и сайты-портфолио с AI. Статика, Tailwind, деплой на GitHub Pages." />
+  <meta name="description" content="VibeCode — вайбкодинг: быстрые лендинги и сайты-портфолио с AI." />
   <title>VibeCode — вайбкодинг · лендинги и портфолио</title>
 
   <!-- Tailwind CSS CDN -->
@@ -34,17 +34,13 @@
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
 
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     [x-cloak] { display: none !important; }
     .mesh-bg {
       background-color: #020617;
-      background-image:
-        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139, 92, 246, 0.35), transparent),
-        radial-gradient(ellipse 60% 40% at 100% 0%, rgba(34, 211, 238, 0.12), transparent);
+      background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139, 92, 246, 0.35), transparent);
     }
     .card-glass {
       background: rgba(255, 255, 255, 0.05);
@@ -54,70 +50,62 @@
   </style>
 </head>
 
-<body class="mesh-bg text-slate-100 font-sans antialiased min-h-screen" x-data="siteData()">
+<body class="mesh-bg text-slate-100 font-sans min-h-screen" x-data="appData()">
 
   <!-- Header -->
   <header class="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-slate-950/80 backdrop-blur-md">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       
-      <!-- Logo with Photo -->
-      <a href="#hero" class="flex items-center gap-3 group">
-        <img 
-          src="/vabe_portfolio/img/phone.jpg" 
-          alt="VibeCode" 
-          class="h-10 w-10 rounded-full object-cover border-2 border-vibe-400 transition-transform group-hover:scale-105" 
-          width="40" 
-          height="40"
-        >
-        <span class="font-display text-lg font-bold tracking-tight text-white">
-          Vibe<span class="text-vibe-400">Code</span>
-        </span>
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center gap-3">
+        <img src="/vabe_portfolio/img/phone.jpg" alt="VibeCode" class="h-10 w-10 rounded-full object-cover border-2 border-vibe-400" width="40" height="40">
+        <span class="font-display text-lg font-bold text-white">Vibe<span class="text-vibe-400">Code</span></span>
       </a>
 
-      <!-- Desktop Nav -->
-      <nav class="hidden items-center gap-8 md:flex">
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center gap-8">
         <template x-for="link in nav" :key="link.id">
-          <a :href="'#' + link.id" class="text-sm font-medium text-slate-400 hover:text-white transition" x-text="link.label"></a>
+          <a :href="'#' + link.id" class="text-sm text-slate-400 hover:text-white transition" x-text="link.label"></a>
         </template>
       </nav>
 
-      <!-- Mobile Menu Button -->
-      <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-2 text-slate-400 hover:text-white">
+      <!-- Mobile Button -->
+      <button @click="menuOpen = !menuOpen" class="md:hidden p-2 text-slate-400">
         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          <path x-show="mobileMenuOpen" x-cloak stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          <path x-show="!menuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          <path x-show="menuOpen" x-cloak stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
         </svg>
       </button>
     </div>
 
     <!-- Mobile Menu -->
-    <div x-show="mobileMenuOpen" x-transition x-cloak class="md:hidden border-t border-white/5 bg-slate-950/95">
+    <div x-show="menuOpen" x-transition x-cloak class="md:hidden border-t border-white/5 bg-slate-950">
       <nav class="flex flex-col p-4 gap-2">
         <template x-for="link in nav" :key="link.id">
-          <a :href="'#' + link.id" @click="mobileMenuOpen = false" class="rounded-lg px-3 py-2 text-slate-300 hover:bg-white/5" x-text="link.label"></a>
+          <a :href="'#' + link.id" @click="menuOpen = false" class="px-3 py-2 text-slate-300 hover:bg-white/5 rounded-lg" x-text="link.label"></a>
         </template>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <!-- Hero Section -->
-    <section id="hero" class="pt-28 pb-16 sm:pt-36 sm:pb-24">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
+    <!-- Hero -->
+    <section id="hero" class="pt-32 pb-20 px-4">
+      <div class="max-w-4xl mx-auto text-center">
         <p class="inline-flex items-center rounded-full border border-vibe-400/30 bg-vibe-500/10 px-3 py-1 text-xs font-medium text-vibe-200 mb-6">
           Вайбкодинг · AI + чистый код
         </p>
-        <h1 class="font-display text-4xl font-bold tracking-tight text-white sm:text-6xl">
-          Сайты, которые <span class="bg-gradient-to-r from-vibe-300 via-cyan-300 to-pink-300 bg-clip-text text-transparent">продают вашу экспертизу</span> — за дни, не недели
+        <h1 class="font-display text-4xl sm:text-6xl font-bold text-white leading-tight">
+          Сайты, которые <span class="text-vibe-400">продают вашу экспертизу</span> — за дни, не недели
         </h1>
         <p class="mt-6 text-lg text-slate-400 max-w-2xl mx-auto">
-          Делаю лендинги и портфолио на HTML, Tailwind и Alpine.js. Статика на GitHub Pages — быстро, безопасно, без ежемесячного хостинга.
+          Делаю лендинги и портфолио на HTML, Tailwind и Alpine.js. Статика на GitHub Pages.
         </p>
-        <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a href="#contact" class="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-vibe-600 to-vibe-500 px-6 py-3 text-sm font-semibold text-white shadow-lg hover:from-vibe-500 hover:to-vibe-400 transition">
+        <div class="mt-10 flex flex-wrap justify-center gap-4">
+          <a href="#contact" class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-vibe-600 to-vibe-500 px-6 py-3 text-sm font-semibold text-white hover:from-vibe-500 hover:to-vibe-400 transition">
             Бесплатная консультация
           </a>
-          <a href="#portfolio" class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-slate-200 transition hover:border-vibe-400/50 hover:bg-white/10">
+          <a href="#portfolio" class="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-slate-200 hover:bg-white/10 transition">
             Смотреть работы
           </a>
         </div>
@@ -126,6 +114,134 @@
 
     <!-- Services -->
     <section id="services" class="py-20 border-t border-white/5">
-      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <h2 class="font-display text-3xl font-bold text-white sm:text-4xl mb-12 text-center">Что делаю</h2>
-        <div class="grid gap-6 md:grid-cols-3">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white text-center mb-12">Что делаю</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <template x-for="(item, i) in services" :key="i">
+            <div class="card-glass p-6 rounded-2xl">
+              <span class="text-3xl" x-text="item.icon"></span>
+              <h3 class="mt-4 font-display text-xl font-semibold text-white" x-text="item.title"></h3>
+              <p class="mt-2 text-sm text-slate-400" x-text="item.desc"></p>
+            </div>
+          </template>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="py-20 bg-slate-900/40">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white text-center mb-12">Кейсы</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <template x-for="(project, i) in projects" :key="i">
+            <div class="card-glass rounded-2xl overflow-hidden">
+              <div class="h-40 bg-gradient-to-br from-vibe-600 to-vibe-800 flex items-end p-4">
+                <span class="inline-flex items-center rounded-full border border-vibe-400/30 bg-vibe-500/10 px-3 py-1 text-xs font-medium text-vibe-200" x-text="project.type"></span>
+              </div>
+              <div class="p-6">
+                <h3 class="font-display text-lg font-semibold text-white" x-text="project.title"></h3>
+                <p class="mt-1 text-xs text-slate-500" x-text="project.stack"></p>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 border-t border-white/5">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid lg:grid-cols-2 gap-12">
+          
+          <!-- Info -->
+          <div>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Оставить заявку</h2>
+            <p class="mt-4 text-slate-400">Опишите задачу — отвечу в течение 24 часов.</p>
+            
+            <ul class="mt-8 space-y-4 text-sm">
+              <li>
+                <strong class="text-white block mb-1">Email</strong>
+                <a href="mailto:dffggg2013@yandex.by" class="text-vibe-300 hover:underline">dffggg2013@yandex.by</a>
+              </li>
+              <li>
+                <strong class="text-white block mb-1">Telegram</strong>
+                <a href="https://t.me/viktorystel" target="_blank" class="text-vibe-300 hover:underline">@viktorystel</a>
+              </li>
+              <li>
+                <strong class="text-white block mb-1">Телефон</strong>
+                <a href="tel:+375298283098" class="text-vibe-300 hover:underline">+375 (29) 828-30-98</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Form -->
+          <div class="card-glass rounded-2xl p-8">
+            <form @submit.prevent="submitForm" class="space-y-6">
+              <div>
+                <label class="block text-sm font-medium text-slate-300 mb-2">Имя *</label>
+                <input type="text" x-model="form.name" class="w-full rounded-xl border border-white/10 bg-slate-900/80 px-4 py-3 text-white focus:border-vibe-400 focus:ring-1 focus:ring-vibe-400 outline-none" required>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-300 mb-2">Email *</label>
+                <input type="email" x-model="form.email" class="w-full rounded-xl border border-white/10 bg-slate-900/80 px-4 py-3 text-white focus:border-vibe-400 focus:ring-1 focus:ring-vibe-400 outline-none" required>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-300 mb-2">Задача *</label>
+                <textarea x-model="form.message" rows="4" class="w-full rounded-xl border border-white/10 bg-slate-900/80 px-4 py-3 text-white focus:border-vibe-400 focus:ring-1 focus:ring-vibe-400 outline-none" required></textarea>
+              </div>
+              <button type="submit" class="w-full rounded-xl bg-gradient-to-r from-vibe-600 to-vibe-500 px-6 py-3 text-sm font-semibold text-white hover:from-vibe-500 hover:to-vibe-400 transition disabled:opacity-50" :disabled="loading">
+                <span x-show="!loading">Отправить заявку</span>
+                <span x-show="loading" x-cloak>Отправка…</span>
+              </button>
+              <p x-show="success" class="text-emerald-400 text-sm text-center mt-3">✅ Спасибо! Заявка отправлена.</p>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 py-10 text-center text-slate-500 text-sm">
+    <p>© <span x-text="new Date().getFullYear()"></span> VibeCode. Вайбкодинг под заказ.</p>
+  </footer>
+
+  <!-- App Data -->
+  <script>
+    function appData() {
+      return {
+        menuOpen: false,
+        loading: false,
+        success: false,
+        form: { name: '', email: '', message: '' },
+        nav: [
+          { id: 'hero', label: 'Главная' },
+          { id: 'services', label: 'Услуги' },
+          { id: 'portfolio', label: 'Кейсы' },
+          { id: 'contact', label: 'Контакты' }
+        ],
+        services: [
+          { icon: '🚀', title: 'Лендинги', desc: 'Продающие одностраничники с высокой конверсией.' },
+          { icon: '📁', title: 'Портфолио', desc: 'Сайты-визитки для специалистов.' },
+          { icon: '⚡', title: 'Доработка', desc: 'Исправление ошибок и улучшение скорости.' }
+        ],
+        projects: [
+          { title: 'Лендинг курса', type: 'Лендинг', stack: 'HTML + Tailwind' },
+          { title: 'Портфолио дизайнера', type: 'Портфолио', stack: 'HTML + Alpine.js' },
+          { title: 'Сайт агентства', type: 'Корпоративный', stack: 'Static' }
+        ],
+        submitForm() {
+          this.loading = true;
+          setTimeout(() => {
+            this.loading = false;
+            this.success = true;
+            this.form = { name: '', email: '', message: '' };
+            setTimeout(() => this.success = false, 5000);
+          }, 1500);
+        }
+      }
+    }
+  </script>
+</body>
+</html>
