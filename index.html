@@ -1,547 +1,148 @@
 <!DOCTYPE html>
 <html lang="ru" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="VibeCode — вайбкодинг: быстрые лендинги и сайты-портфолио с AI. Статика, Tailwind, деплой на GitHub Pages." />
-  <title>VibeCode — вайбкодинг · лендинги и портфолио</title>
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            display: ['Space Grotesk', 'sans-serif'],
-          },
-          colors: {
-            vibe: {
-              50: '#f5f3ff',
-              100: '#ede9fe',
-              200: '#ddd6fe',
-              300: '#c4b5fd',
-              400: '#a78bfa',
-              500: '#8b5cf6',
-              600: '#7c3aed',
-              700: '#6d28d9',
-              800: '#5b21b6',
-              900: '#4c1d95',
-            },
-            glow: {
-              cyan: '#22d3ee',
-              pink: '#f472b6'
-            }
-          },
-        }
-      }
-    }
-  </script>
-
-  <!-- Alpine.js CDN -->
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-
-  <style>
-    [x-cloak] { display: none !important; }
-    html { scroll-behavior: smooth; }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-    }
-    body {
-      background-color: #020617;
-      background-image:
-        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139, 92, 246, 0.35), transparent),
-        radial-gradient(ellipse 60% 40% at 100% 0%, rgba(34, 211, 238, 0.12), transparent);
-    }
-    .card-glass {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #a78bfa 0%, #22d3ee 50%, #f472b6 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
-      color: white;
-      font-weight: 600;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.75rem;
-      transition: all 0.2s;
-      border: none;
-      cursor: pointer;
-    }
-    .btn-primary:hover {
-      background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
-    }
-    .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background: rgba(255, 255, 255, 0.05);
-      color: white;
-      font-weight: 600;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.75rem;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      transition: all 0.2s;
-      cursor: pointer;
-    }
-    .btn-ghost:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(167, 139, 250, 0.5);
-    }
-    .input-field {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      background: rgba(15, 23, 42, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 0.75rem;
-      color: white;
-      font-size: 0.875rem;
-      outline: none;
-      transition: all 0.2s;
-    }
-    .input-field:focus {
-      border-color: rgba(139, 92, 246, 0.6);
-      box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.25);
-    }
-    .input-field::placeholder {
-      color: rgba(148, 163, 184, 0.8);
-    }
-    .label-field {
-      display: block;
-      margin-bottom: 0.375rem;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: rgba(203, 213, 225, 1);
-    }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.25rem 0.75rem;
-      background: rgba(139, 92, 246, 0.1);
-      border: 1px solid rgba(139, 92, 246, 0.3);
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: rgba(221, 214, 254, 1);
-    }
-    .section-pad {
-      padding: 5rem 1rem;
-    }
-    @media (min-width: 640px) {
-      .section-pad {
-        padding: 5rem 1.5rem;
-      }
-    }
-    @media (min-width: 1024px) {
-      .section-pad {
-        padding: 7rem 2rem;
-      }
-    }
-    .container-narrow {
-      max-width: 72rem;
-      margin: 0 auto;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VibeCode — вайбкодинг · лендинги и портфолио</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+[x-cloak] { display: none !important; }
+body { background-color: #020617; background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139, 92, 246, 0.35), transparent), radial-gradient(ellipse 60% 40% at 100% 0%, rgba(34, 211, 238, 0.12), transparent); }
+.card-glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+.gradient-text { background: linear-gradient(135deg, #a78bfa 0%, #22d3ee 50%, #f472b6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%); color: white; font-weight: 600; padding: 0.75rem 1.5rem; border-radius: 0.75rem; transition: all 0.2s; border: none; cursor: pointer; }
+.btn-primary:hover { background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4); }
+.btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.05); color: white; font-weight: 600; padding: 0.75rem 1.5rem; border-radius: 0.75rem; border: 1px solid rgba(255, 255, 255, 0.15); transition: all 0.2s; cursor: pointer; }
+.btn-ghost:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(167, 139, 250, 0.5); }
+.input-field { width: 100%; padding: 0.75rem 1rem; background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 0.75rem; color: white; font-size: 0.875rem; outline: none; }
+.label-field { display: block; margin-bottom: 0.375rem; font-size: 0.875rem; font-weight: 500; color: #cbd5e1; }
+.badge { display: inline-flex; align-items: center; padding: 0.25rem 0.75rem; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 9999px; font-size: 0.75rem; color: #ddd6fe; }
+.section-pad { padding: 5rem 1rem; }
+@media (min-width: 640px) { .section-pad { padding: 5rem 1.5rem; } }
+@media (min-width: 1024px) { .section-pad { padding: 7rem 2rem; } }
+.container-narrow { max-width: 72rem; margin: 0 auto; }
+</style>
 </head>
-
 <body class="text-slate-100 font-sans antialiased min-h-screen" x-data="siteData()">
-
-  <!-- Skip link -->
-  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-vibe-600 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white">
-    Перейти к содержимому
-  </a>
-
-  <!-- Header -->
-  <header class="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-slate-950/80 backdrop-blur-md">
-    <div class="container-narrow flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-      
-      <!-- Logo -->
-      <a href="#hero" class="flex items-center gap-3 group">
-        <img 
-          src="/vabe_portfolio/img/phone.jpg" 
-          alt="VibeCode" 
-          class="h-10 w-10 rounded-full object-cover border-2 border-vibe-400 transition-transform group-hover:scale-105" 
-          width="40" 
-          height="40"
-        >
-        <span class="font-display text-lg font-bold tracking-tight text-white">
-          Vibe<span class="text-vibe-400">Code</span>
-        </span>
-      </a>
-
-      <!-- Desktop Nav -->
-      <nav class="hidden items-center gap-8 md:flex" aria-label="Основная навигация">
-        <template x-for="link in nav" :key="link.id">
-          <a
-            :href="'#' + link.id"
-            class="text-sm text-slate-400 transition hover:text-white"
-            x-text="link.label"
-          ></a>
-        </template>
-      </nav>
-
-      <div class="flex items-center gap-3">
-        <a href="#contact" class="btn-primary hidden text-sm sm:inline-flex"> Оставить заявку </a>
-        <button
-          type="button"
-          class="inline-flex rounded-lg border border-white/10 p-2 text-slate-300 md:hidden"
-          :aria-expanded="mobileMenuOpen"
-          aria-label="Меню"
-          @click="mobileMenuOpen = !mobileMenuOpen"
-        >
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path
-              x-show="!mobileMenuOpen"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-            <path
-              x-show="mobileMenuOpen"
-              x-cloak
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div
-      x-show="mobileMenuOpen"
-      x-transition
-      x-cloak
-      @click.outside="mobileMenuOpen = false"
-      class="border-t border-white/5 bg-slate-950/95 md:hidden"
-    >
-      <nav class="flex flex-col gap-1 px-4 py-4" aria-label="Мобильное меню">
-        <template x-for="link in nav" :key="link.id">
-          <a
-            :href="'#' + link.id"
-            class="rounded-lg px-3 py-2 text-slate-300 hover:bg-white/5 hover:text-white"
-            @click="mobileMenuOpen = false"
-            x-text="link.label"
-          ></a>
-        </template>
-        <a href="#contact" class="btn-primary mt-2 w-full" @click="mobileMenuOpen = false"> Заявка </a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main">
-    <!-- Hero -->
-    <section id="hero" class="relative overflow-hidden pt-28 section-pad pb-16">
-      <div class="container-narrow relative">
-        <p class="badge mb-6">
-          Вайбкодинг · AI + чистый код
-        </p>
-        <h1 class="font-display max-w-3xl text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-          Сайты, которые
-          <span class="gradient-text">продают вашу экспертизу</span>
-          — за дни, не недели
-        </h1>
-        <p class="mt-6 max-w-2xl text-lg text-slate-400">
-          Делаю лендинги и портфолио на HTML, Tailwind и Alpine.js. Статика на GitHub Pages —
-          быстро, безопасно, без ежемесячного хостинга.
-        </p>
-
-        <div class="mt-10 flex flex-wrap items-center gap-4">
-          <a href="#contact" class="btn-primary"> Бесплатная консультация </a>
-          <a href="#portfolio" class="btn-ghost"> Смотреть работы </a>
-        </div>
-
-        <dl class="mt-16 grid grid-cols-2 gap-6 sm:grid-cols-4">
-          <div class="card-glass p-4 text-center">
-            <dt class="text-xs uppercase tracking-wider text-slate-500">Срок лендинга</dt>
-            <dd class="mt-1 font-display text-2xl font-bold text-white">2–5 дн</dd>
-          </div>
-          <div class="card-glass p-4 text-center">
-            <dt class="text-xs uppercase tracking-wider text-slate-500">Стек</dt>
-            <dd class="mt-1 font-display text-2xl font-bold text-vibe-300">Static</dd>
-          </div>
-          <div class="card-glass p-4 text-center">
-            <dt class="text-xs uppercase tracking-wider text-slate-500">Проектов</dt>
-            <dd class="mt-1 font-display text-2xl font-bold text-white">12+</dd>
-          </div>
-          <div class="card-glass p-4 text-center">
-            <dt class="text-xs uppercase tracking-wider text-slate-500">Правки</dt>
-            <dd class="mt-1 font-display text-2xl font-bold text-emerald-400">7 дн</dd>
-          </div>
-        </dl>
-      </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services" class="section-pad border-t border-white/5">
-      <div class="container-narrow">
-        <div class="max-w-2xl">
-          <h2 class="font-display text-3xl font-bold text-white sm:text-4xl">
-            Что делаю
-          </h2>
-          <p class="mt-4 text-slate-400">
-            Фокус на конверсию: понятный оффер, социальное доказательство и форма без лишнего
-            трения.
-          </p>
-        </div>
-
-        <div class="mt-12 grid gap-6 md:grid-cols-3">
-          <template x-for="(item, i) in services" :key="i">
-            <article class="card-glass group p-6 transition hover:border-vibe-500/40">
-              <span class="text-3xl" aria-hidden="true" x-text="item.icon"></span>
-              <h3 class="mt-4 font-display text-xl font-semibold text-white" x-text="item.title"></h3>
-              <p class="mt-2 text-sm leading-relaxed text-slate-400" x-text="item.desc"></p>
-            </article>
-          </template>
-        </div>
-      </div>
-    </section>
-
-    <!-- Portfolio -->
-    <section id="portfolio" class="section-pad bg-slate-900/40">
-      <div class="container-narrow">
-        <div class="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <h2 class="font-display text-3xl font-bold text-white sm:text-4xl">
-              Кейсы
-            </h2>
-            <p class="mt-4 text-slate-400">Демо-проекты из этой же рабочей области.</p>
-          </div>
-          <a href="#contact" class="btn-ghost text-sm"> Нужен похожий? Написать </a>
-        </div>
-
-        <div class="mt-12 grid gap-6 md:grid-cols-3">
-          <template x-for="(project, i) in projects" :key="i">
-            <a
-              :href="project.href"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="card-glass group overflow-hidden transition hover:-translate-y-1"
-            >
-              <div class="flex h-40 items-end bg-gradient-to-br from-vibe-600 to-vibe-800 p-6">
-                <span class="badge" x-text="project.type"></span>
-              </div>
-              <div class="p-6">
-                <h3 class="font-display text-lg font-semibold text-white group-hover:text-vibe-300" x-text="project.title"></h3>
-                <p class="mt-1 text-xs text-slate-500" x-text="project.stack"></p>
-                <span class="mt-4 inline-flex items-center gap-1 text-sm text-vibe-400">
-                  Открыть демо
-                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </span>
-              </div>
-            </a>
-          </template>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section-pad border-t border-white/5">
-      <div class="container-narrow grid gap-12 lg:grid-cols-2">
-        <div>
-          <h2 class="font-display text-3xl font-bold text-white sm:text-4xl">
-            Оставить заявку
-          </h2>
-          <p class="mt-4 text-slate-400">
-            Опишите задачу — отвечу в Telegram или на email в течение 24 часов.
-          </p>
-          <ul class="mt-8 space-y-4 text-sm text-slate-400">
-            <li>
-              <strong class="text-white block mb-1">Email:</strong>
-              <a class="text-vibe-300 hover:underline" href="mailto:dffggg2013@yandex.by">
-                dffggg2013@yandex.by
-              </a>
-            </li>
-            <li>
-              <strong class="text-white block mb-1">Telegram:</strong>
-              <a
-                class="text-vibe-300 hover:underline"
-                href="https://t.me/viktorystel"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                @viktorystel
-              </a>
-            </li>
-            <li>
-              <strong class="text-white block mb-1">Телефон:</strong>
-              <a class="text-vibe-300 hover:underline" href="tel:+375298283098">
-                +375 (29) 828-30-98
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <form
-          class="card-glass relative p-6 sm:p-8"
-          x-data="tgForm()"
-          @submit.prevent="sendToTelegram()"
-          novalidate
-        >
-          <div class="space-y-5">
-            <!-- Name -->
-            <div>
-              <label for="name" class="label-field">Имя <span class="text-vibe-400">*</span></label>
-              <input
-                type="text"
-                id="name"
-                class="input-field"
-                placeholder="Как к вам обращаться?"
-                required
-                x-model="fields.name"
-                :class="errors.name ? 'border-red-500 focus:ring-red-500/20' : ''"
-              />
-              <p class="mt-1 text-xs text-red-400" x-show="errors.name" x-text="errors.name"></p>
-            </div>
-
-            <!-- Email -->
-            <div>
-              <label for="email" class="label-field">Email <span class="text-vibe-400">*</span></label>
-              <input
-                type="email"
-                id="email"
-                class="input-field"
-                placeholder="your@email.com"
-                required
-                x-model="fields.email"
-                :class="errors.email ? 'border-red-500 focus:ring-red-500/20' : ''"
-              />
-              <p class="mt-1 text-xs text-red-400" x-show="errors.email" x-text="errors.email"></p>
-            </div>
-
-            <!-- Message -->
-            <div>
-              <label for="message" class="label-field">Задача <span class="text-vibe-400">*</span></label>
-              <textarea
-                id="message"
-                rows="4"
-                class="input-field resize-y"
-                placeholder="Опишите проект, сроки, бюджет..."
-                required
-                x-model="fields.message"
-                :class="errors.message ? 'border-red-500 focus:ring-red-500/20' : ''"
-              ></textarea>
-              <p class="mt-1 text-xs text-red-400" x-show="errors.message" x-text="errors.message"></p>
-            </div>
-          </div>
-
-          <button
-            type="submit"
-            class="btn-primary mt-6 w-full flex items-center justify-center gap-2"
-          >
-            <span>Отправить в Telegram</span>
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.03-2.01 1.28-5.68 3.76-.54.37-1.03.55-1.47.54-.48-.01-1.41-.27-2.1-.5-.85-.28-1.53-.43-1.48-.9.03-.25.41-.51 1.12-.78 4.38-1.9 7.3-3.16 8.77-3.76 4.17-1.7 5.05-2.01 5.62-2.02.12 0 .4.03.58.18.15.12.19.29.21.42.02.12.02.24.02.27z"/>
-            </svg>
-          </button>
-          
-          <p class="mt-3 text-xs text-center text-slate-500">
-            Нажмите кнопку, и у вас откроется чат со мной с готовым сообщением.
-          </p>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="border-t border-white/5 py-10">
-    <div class="container-narrow flex flex-col items-center justify-between gap-4 px-4 sm:flex-row sm:px-6 lg:px-8">
-      <p class="text-sm text-slate-500">
-        © <span x-text="new Date().getFullYear()"></span> VibeCode. Вайбкодинг под заказ.
-      </p>
-      <a href="#hero" class="text-sm text-slate-500 hover:text-vibe-300"> Наверх ↑ </a>
-    </div>
-  </footer>
-
-  <!-- App Scripts -->
-  <script>
-    function siteData() {
-      return {
-        mobileMenuOpen: false,
-        nav: [
-          { id: 'hero', label: 'Главная' },
-          { id: 'services', label: 'Услуги' },
-          { id: 'portfolio', label: 'Кейсы' },
-          { id: 'contact', label: 'Контакты' },
-        ],
-        services: [
-          { icon: '🚀', title: 'Лендинги', desc: 'Продающие одностраничники с высокой конверсией. Адаптив, скорость, форма заявки.' },
-          { icon: '📁', title: 'Портфолио', desc: 'Сайты-визитки для специалистов. Красиво, быстро, без CMS.' },
-          { icon: '⚡', title: 'Доработка', desc: 'Исправление ошибок, улучшение скорости, добавление функционала.' },
-        ],
-        projects: [
-          { title: 'Лендинг курса', type: 'Лендинг', stack: 'HTML + Tailwind', href: '#' },
-          { title: 'Портфолио дизайнера', type: 'Портфолио', stack: 'HTML + Alpine.js', href: '#' },
-          { title: 'Сайт агентства', type: 'Корпоративный', stack: 'Static', href: '#' },
-        ],
-      }
-    }
-
-    function tgForm() {
-      return {
-        fields: { name: '', email: '', message: '' },
-        errors: {},
-
-        sendToTelegram() {
-          // Reset errors
-          this.errors = {};
-          let hasError = false;
-
-          // Validation
-          if (!this.fields.name.trim()) {
-            this.errors.name = 'Пожалуйста, введите имя';
-            hasError = true;
-          }
-          if (!this.fields.email.trim() || !this.fields.email.includes('@')) {
-            this.errors.email = 'Введите корректный email';
-            hasError = true;
-          }
-          if (!this.fields.message.trim()) {
-            this.errors.message = 'Опишите вашу задачу';
-            hasError = true;
-          }
-
-          if (hasError) return;
-
-          // Form message text
-          const text = `🔥 Новая заявка с сайта VibeCode%0A%0A` +
-                       `👤 Имя: ${encodeURIComponent(this.fields.name)}%0A` +
-                       `📧 Email: ${encodeURIComponent(this.fields.email)}%0A` +
-                       `💬 Задача: ${encodeURIComponent(this.fields.message)}`;
-
-          // Open Telegram
-          const finalUrl = `https://t.me/viktorystel?text=${text}`;
-          window.open(finalUrl, '_blank');
-          
-          // Clear form
-          this.fields = { name: '', email: '', message: '' };
-        }
-      }
-    }
-  </script>
+<header class="fixed inset-x-0 top-0 z-[100] border-b border-white/5 bg-slate-950/80 backdrop-blur-md">
+<div class="container-narrow flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+<a href="#hero" class="flex items-center gap-3 group">
+<img src="img/phone.jpg" alt="VibeCode" class="h-10 w-10 rounded-full object-cover border-2 border-vibe-400">
+<span class="font-display text-lg font-bold tracking-tight text-white">Vibe<span class="text-vibe-400">Code</span></span>
+</a>
+<nav class="hidden items-center gap-8 md:flex">
+<template x-for="link in nav" :key="link.id">
+<a :href="'#' + link.id" class="text-sm text-slate-400 transition hover:text-white" x-text="link.label"></a>
+</template>
+</nav>
+<div class="flex items-center gap-3">
+<button @click="openModal = true" class="btn-primary hidden text-sm sm:inline-flex">Оставить заявку</button>
+<button type="button" class="inline-flex rounded-lg border border-white/10 p-2 text-slate-300 md:hidden" @click="mobileMenuOpen = !mobileMenuOpen">
+<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /><path x-show="mobileMenuOpen" x-cloak stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+</button>
+</div>
+</div>
+</header>
+<main id="main">
+<section id="hero" class="relative overflow-hidden pt-28 section-pad pb-16">
+<div class="container-narrow relative">
+<p class="badge mb-6">Вайбкодинг · AI + чистый код</p>
+<h1 class="font-display max-w-3xl text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+Сайты, которые <span class="gradient-text">продают вашу экспертизу</span> — за дни, не недели
+</h1>
+<p class="mt-6 max-w-2xl text-lg text-slate-400">Делаю лендинги и portfolio на HTML, Tailwind и Alpine.js. Статика на GitHub Pages — быстро и безопасно.</p>
+<div class="mt-10 flex flex-wrap items-center gap-4">
+<button @click="openModal = true" class="btn-primary">Бесплатная консультация</button>
+<a href="#portfolio" class="btn-ghost">Смотреть работы</a>
+</div>
+<dl class="mt-16 grid grid-cols-2 gap-6 sm:grid-cols-4">
+<div class="card-glass p-4 text-center"><dt class="text-xs uppercase text-slate-500">Срок</dt><dd class="mt-1 text-2xl font-bold text-white">2–5 дн</dd></div>
+<div class="card-glass p-4 text-center"><dt class="text-xs uppercase text-slate-500">Стек</dt><dd class="mt-1 text-2xl font-bold text-vibe-300">Static</dd></div>
+<div class="card-glass p-4 text-center"><dt class="text-xs uppercase text-slate-500">Проектов</dt><dd class="mt-1 text-2xl font-bold text-white">12+</dd></div>
+<div class="card-glass p-4 text-center"><dt class="text-xs uppercase text-slate-500">Правки</dt><dd class="mt-1 text-2xl font-bold text-emerald-400">7 дн</dd></div>
+</dl>
+</div>
+</section>
+<section id="portfolio" class="section-pad bg-slate-900/40">
+<div class="container-narrow">
+<div class="flex flex-wrap items-end justify-between gap-4">
+<div><h2 class="font-display text-3xl font-bold text-white sm:text-4xl">Кейсы</h2><p class="mt-4 text-slate-400">Демо-проекты из этой же рабочей области.</p></div>
+<button @click="openModal = true" class="btn-ghost text-sm">Нужен похожий?</button>
+</div>
+<div class="mt-12 grid gap-6 md:grid-cols-3">
+<template x-for="(project, i) in projects" :key="i">
+<a :href="project.href" target="_blank" class="card-glass group overflow-hidden transition hover:-translate-y-1 block p-6">
+<span class="badge mb-4" x-text="project.type"></span>
+<h3 class="font-display text-lg font-semibold text-white group-hover:text-vibe-300" x-text="project.title"></h3>
+<p class="mt-1 text-xs text-slate-500" x-text="project.stack"></p>
+</a>
+</template>
+</div>
+</div>
+</section>
+<section id="contact" class="section-pad border-t border-white/5">
+<div class="container-narrow grid gap-12 lg:grid-cols-2">
+<div>
+<h2 class="font-display text-3xl font-bold text-white sm:text-4xl">Оставить заявку</h2>
+<p class="mt-4 text-slate-400">Отвечу в Telegram в течение пары часов.</p>
+</div>
+<form class="card-glass p-6 sm:p-8 space-y-5" x-data="tgForm()" @submit.prevent="sendForm('main-form')" id="main-form">
+<div><label class="label-field">Имя</label><input type="text" name="name" class="input-field" required x-model="fields.name" /></div>
+<div><label class="label-field">Email</label><input type="email" name="email" class="input-field" required x-model="fields.email" /></div>
+<div><label class="label-field">Задача</label><textarea name="message" rows="4" class="input-field" required x-model="fields.message"></textarea></div>
+<button type="submit" class="btn-primary w-full">Отправить заявку</button>
+</form>
+</div>
+</section>
+</main>
+<footer class="border-t border-white/5 py-10">
+<div class="container-narrow flex flex-col items-center justify-between gap-4 px-4 sm:flex-row sm:px-6 lg:px-8">
+<p class="text-sm text-slate-500">© 2026 VibeCode. Вайбкодинг под заказ.</p>
+<a href="#hero" class="text-sm text-slate-500 hover:text-vibe-300">Наверх ↑</a>
+</div>
+</footer>
+<div x-show="openModal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm" x-cloak>
+<div @click.outside="openModal = false" class="card-glass rounded-2xl max-w-md w-full p-6 relative bg-slate-900 border border-white/10 shadow-2xl">
+<button @click="openModal = false" class="absolute top-4 right-4 text-slate-400 hover:text-white">✕</button>
+<h3 class="font-display text-2xl font-bold text-white mb-6">Быстрая консультация</h3>
+<form x-data="tgForm()" @submit.prevent="sendForm('popup-form')" id="popup-form" class="space-y-4">
+<div><label class="label-field">Имя</label><input type="text" name="name" class="input-field" required x-model="fields.name" /></div>
+<div><label class="label-field">Email</label><input type="email" name="email" class="input-field" required x-model="fields.email" /></div>
+<div><label class="label-field">Задача</label><textarea name="message" rows="3" class="input-field" required x-model="fields.message"></textarea></div>
+<button type="submit" class="btn-primary w-full">Отправить бриф</button>
+</form>
+</div>
+</div>
+<script>
+function siteData() {
+return {
+mobileMenuOpen: false, openModal: false,
+nav: [{ id: 'hero', label: 'Главная' }, { id: 'portfolio', label: 'Кейсы' }, { id: 'contact', label: 'Контакты' }],
+projects: [
+{ title: 'Капуччино & Код', type: 'Квиз-Лендинг', stack: 'HTML + JS', href: 'https://brilliant-daifuku-cfd150.netlify.app' },
+{ title: 'Портфолио дизайнера', type: 'Портфолио', stack: 'HTML + Alpine.js', href: '#' }
+]
+}
+}
+function tgForm() {
+return {
+fields: { name: '', email: '', message: '' }, errors: {},
+async sendForm(formId) {
+const formElement = document.getElementById(formId); const formData = new FormData(formElement);
+formData.append("access_key", "5019d146-5f50-482f-8700-4b2a8d54c1bb");
+formData.append("subject", "🔥 Новый лид с портфолио VibeCode!");
+try {
+const response = await fetch("https://api.web3forms.com/submit", { method: "POST", body: formData });
+if (response.ok) { alert('Успешно! Заявка доставлена Виктору в Telegram.'); this.fields = { name: '', email: '', message: '' }; if(this.openModal) this.openModal = false; }
+else { alert('Ошибка при отправке.'); }
+} catch (error) { alert('Ошибка сети.'); }
+}
+}
+}
+</script>
 </body>
 </html>
