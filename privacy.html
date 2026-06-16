@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Политика конфиденциальности — VibeCode</title>
+    <link rel="stylesheet" href="css/app.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        vibe: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            200: '#ddd6fe',
+                            300: '#c4b5fd',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            800: '#5b21b6',
+                            900: '#4c1d95',
+                        },
+                        glow: {
+                            cyan: '#22d3ee',
+                            pink: '#f472b6',
+                        }
+                    },
+                    boxShadow: {
+                        glow: '0 0 20px rgba(139, 92, 246, 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased mesh-bg">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="text-xl font-bold gradient-text">VibeCode</a>
+                <div class="hidden md:flex gap-8">
+                    <a href="index.html#about" class="nav-link">Обо мне</a>
+                    <a href="index.html#portfolio" class="nav-link">Портфолио</a>
+                    <a href="index.html#process" class="nav-link">Как работаю</a>
+                    <a href="index.html#contact" class="nav-link">Контакты</a>
+                </div>
+                <a href="index.html#contact" class="btn-primary text-xs">
+                    Написать в Telegram
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 lg:pt-40 lg:pb-28">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                Политика конфиденциальности
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto">
+                Как я обрабатываю ваши персональные данные
+            </p>
+        </div>
+    </section>
+
+    <!-- Privacy Policy Content -->
+    <section class="section-pad">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="card-glass p-8 sm:p-12 space-y-8">
+                
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 gradient-text">1. Общие положения</h2>
+                    <p class="text-slate-300 leading-relaxed">
+                        Настоящая политика конфиденциальности регулирует порядок сбора, использования и защиты персональных данных, 
+                        предоставляемых пользователями сайта VibeCode (далее — Сайт).
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 gradient-text">2. Какие данные я собираю</h2>
+                    <p class="text-slate-300 leading-relaxed mb-3">
+                        При использовании формы обратной связи на Сайте вы предоставляете:
+                    </p>
+                    <ul class="space-y-2 text-slate-300 ml-4">
+                        <li class="flex gap-2">
+                            <span class="text-vibe-400">•</span>
+                            <span>Ваше имя (для обращения)</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-vibe-400">•</span>
+                            <span>Email или никнейм в Telegram (для связи)</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-vibe-400">•</span>
+                            <span>Описание задачи ( для понимания ваших требований)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 gradient-text">3. Цели использования данных</h2>
+                    <p class="text-slate-300 leading-relaxed mb-3">
+                        Ваши данные используются исключительно для:
+                    </p>
+                    <ul class="space-y-2 text-slate-300 ml-4">
+                        <li class="flex gap-2">
+                            <span class="text-vibe-400">•</span>
+                            <span>Ответа на ваш запрос в Telegram</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-vibe-400">•</span>
+                            <span>Обсуждения деталей проекта</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-vibe-400">•</span>
+                            <span>Расчета стоимости и сроков</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-vibe-400">•</span>
+                            <span>Проведения работ по вашему заказу</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 gradient-text">4. Хранение и защита данных</h2>
+                    <p class="text-slate-300 leading-relaxed">
+                        Сайт размещен на GitHub Pages и является статическим. Данные из формы не сохраняются автоматически, 
+                        они передаются вам напрямую через Telegram. Я не передаю ваши данные третьим лицам и не использую их 
+                        для рассылок или маркетинга.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 gradient-text">5. Cookies</h2>
+                    <p class="text-slate-300 leading-relaxed">
+                        Сайт использует только технические cookies, необходимые для корректной работы страницы. 
+                        Мы не используем файлы cookie для сбора персональной информации или трекинга поведения.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 gradient-text">6. Ваши права</h2>
+                    <p class="text-slate-300 leading-relaxed">
+                        Вы имеете право запросить удаление ваших данных, полученный вами доступ к информации, 
+                        которую я о вас храню, и изменить ее. Для этого напишите в Telegram 
+                        <a href="https://t.me/viktorystel" class="text-vibe-400 hover:text-vibe-300">@viktorystel</a>.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 gradient-text">7. Изменения в политике</h2>
+                    <p class="text-slate-300 leading-relaxed">
+                        Я могу обновлять эту политику конфиденциальности. При значимых изменениях 
+                        информация будет доступна на этой странице. Последнее обновление: июнь 2026 года.
+                    </p>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 gradient-text">8. Контакты</h2>
+                    <p class="text-slate-300 leading-relaxed">
+                        По всем вопросам, связанным с конфиденциальностью и защитой данных, 
+                        обращайтесь в Telegram: <a href="https://t.me/viktorystel" class="text-vibe-400 hover:text-vibe-300">@viktorystel</a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="text-sm text-slate-400">
+                © 2026 VibeCode. Вайбкодинг под заказ.
+            </div>
+            <div class="flex gap-6">
+                <a href="privacy.html" class="text-sm text-slate-400 hover:text-white transition">
+                    Политика конфиденциальности
+                </a>
+                <a href="index.html#hero" class="text-sm text-slate-400 hover:text-white transition">
+                    Наверх ↑
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
