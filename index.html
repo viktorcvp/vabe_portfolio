@@ -317,7 +317,7 @@
             </p>
             
             <div class="card-glass p-8">
-                <form x-data="{ submitted: false, submitForm() { const name = $el.querySelector('[name=name]').value; const contact = $el.querySelector('[name=contact]').value; const message = $el.querySelector('[name=message]').value; const text = `Новая заявка%0AИмя: ${encodeURIComponent(name)}%0AКонтакт: ${encodeURIComponent(contact)}%0AОписание: ${encodeURIComponent(message)}`; window.open('https://t.me/viktorystel?text=' + text, '_blank'); this.submitted = true } }" @submit.prevent="submitForm" class="space-y-4 text-left">
+                <form id="contact-form" @submit.prevent="submitted = true" class="space-y-4 text-left" x-data="{ submitted: false, handleSubmit() { const f = this.$root; const name = f.querySelector('[name=name]').value; const contact = f.querySelector('[name=contact]').value; const message = f.querySelector('[name=message]').value; const text = 'Новая заявка%0AИмя: ' + encodeURIComponent(name) + '%0AКонтакт: ' + encodeURIComponent(contact) + '%0AОписание: ' + encodeURIComponent(message); window.open('https://t.me/viktorystel?text=' + text, '_blank'); this.submitted = true } }" @submit="handleSubmit()">
                     <div>
                         <label class="label-field">Ваше имя</label>
                         <input type="text" name="name" class="input-field" placeholder="Как к вам обращаться?" required>
@@ -330,8 +330,6 @@
                         <label class="label-field">Описание задачи</label>
                         <textarea name="message" class="input-field" rows="4" placeholder="Какой сайт вам нужен? Для какого бизнеса?" required></textarea>
                     </div>
-                    <input type="hidden" name="_subject" value="Новая заявка с портфолио">
-                    <input type="hidden" name="_captcha" value="false">
                     <button type="submit" class="btn-primary w-full" x-show="!submitted">
                         Отправить заявку
                     </button>
@@ -339,7 +337,7 @@
                         ✓ Заявка отправлена! Я скоро свяжусь с вами.
                     </div>
                 </form>
-                
+
                 <div class="mt-6 pt-6 border-t border-white/10 text-center">
                     <p class="text-sm text-slate-400 mb-3">Или напишите напрямую:</p>
                     <a href="https://t.me/viktorystel" target="_blank" class="text-vibe-400 hover:text-vibe-300 font-semibold">
