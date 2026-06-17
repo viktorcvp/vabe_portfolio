@@ -317,19 +317,21 @@
             </p>
             
             <div class="card-glass p-8">
-                <form x-data="{ submitted: false }" @submit.prevent="submitted = true" class="space-y-4 text-left">
+                <form x-data="{ submitted: false, submitForm() { const name = $el.querySelector('[name=name]').value; const contact = $el.querySelector('[name=contact]').value; const message = $el.querySelector('[name=message]').value; const text = `Новая заявка%0AИмя: ${encodeURIComponent(name)}%0AКонтакт: ${encodeURIComponent(contact)}%0AОписание: ${encodeURIComponent(message)}`; window.open('https://t.me/viktorystel?text=' + text, '_blank'); this.submitted = true } }" @submit.prevent="submitForm" class="space-y-4 text-left">
                     <div>
                         <label class="label-field">Ваше имя</label>
-                        <input type="text" class="input-field" placeholder="Как к вам обращаться?" required>
+                        <input type="text" name="name" class="input-field" placeholder="Как к вам обращаться?" required>
                     </div>
                     <div>
                         <label class="label-field">Email или Telegram</label>
-                        <input type="text" class="input-field" placeholder="Для связи" required>
+                        <input type="text" name="contact" class="input-field" placeholder="Для связи" required>
                     </div>
                     <div>
                         <label class="label-field">Описание задачи</label>
-                        <textarea class="input-field" rows="4" placeholder="Какой сайт вам нужен? Для какого бизнеса?" required></textarea>
+                        <textarea name="message" class="input-field" rows="4" placeholder="Какой сайт вам нужен? Для какого бизнеса?" required></textarea>
                     </div>
+                    <input type="hidden" name="_subject" value="Новая заявка с портфолио">
+                    <input type="hidden" name="_captcha" value="false">
                     <button type="submit" class="btn-primary w-full" x-show="!submitted">
                         Отправить заявку
                     </button>
