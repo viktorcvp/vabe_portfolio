@@ -4,15 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <!-- 🔍 SEO: Заголовок и описание для Google -->
     <title>Виктор Савицкий | Веб-разработчик | Создание лендингов по всей Беларуси и удалённо</title>
-    <meta name="description"
-        content="Создание быстрых адаптивных лендингов для бизнеса и экспертов. Срок 2-5 дней, от 200 BYN. HTML, Tailwind CSS. Примеры работ в портфолио.">
-    <meta name="keywords"
-        content="создание сайтов, лендинг, веб-разработчик, Минск, HTML, Tailwind CSS, адаптивная верстка">
+    <meta name="description" content="Создание быстрых адаптивных лендингов для бизнеса и экспертов. Срок 2-5 дней, от 200 BYN. HTML, Tailwind CSS. Примеры работ в портфолио.">
+    <meta name="keywords" content="создание сайтов, лендинг, веб-разработчик, Беларусь, удалённо, HTML, Tailwind CSS, адаптивная верстка">
     <meta name="author" content="Виктор Савицкий">
-
+    
     <!-- 🔗 Open Graph: для красивых ссылок в Telegram, VK, WhatsApp -->
     <meta property="og:title" content="Виктор Савицкий | Веб-разработчик">
     <meta property="og:description" content="Создание современных лендингов под ключ. Быстро, качественно, адаптивно.">
@@ -30,106 +28,4 @@
                 extend: {
                     colors: {
                         vibe: {
-                            50: '#f5f3ff', 100: '#ede9fe', 200: '#ddd6fe', 300: '#c4b5fd',
-                            400: '#a78bfa', 500: '#8b5cf6', 600: '#7c3aed', 700: '#6d28d9',
-                            800: '#5b21b6', 900: '#4c1d95',
-                        },
-                        glow: { cyan: '#22d3ee', pink: '#f472b6' }
-                    },
-                    boxShadow: { glow: '0 0 20px rgba(139, 92, 246, 0.5)' }
-                }
-            }
-        }
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-    </style>
-</head>
-
-<body class="bg-slate-950 text-slate-100 antialiased mesh-bg">
-
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-md">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="#" class="text-xl font-bold gradient-text">Виктор | Web Dev</a>
-                <div class="hidden md:flex gap-8">
-                    <a href="#about" class="nav-link">Обо мне</a>
-                    <a href="#pricing" class="nav-link">Цены</a>
-                    <a href="#portfolio" class="nav-link">Портфолио</a>
-                    <a href="#process" class="nav-link">Процесс</a>
-                </div>
-                <a href="https://t.me/viktorystel" target="_blank" class="btn-primary text-xs">Написать в Telegram</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="hero" class="pt-32 pb-20 lg:pt-40 lg:pb-28">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div
-                class="inline-flex items-center gap-2 rounded-full border border-vibe-400/30 bg-vibe-500/10 px-4 py-1.5 text-xs font-medium text-vibe-200 mb-6">
-                <span class="relative flex h-2 w-2">
-                    <span
-                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-vibe-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-vibe-500"></span>
-                </span>
-                Открыт для новых проектов
-            </div>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Сайты, которые приводят клиентов,<br>
-                <span class="gradient-text">а не просто висят в интернете</span>
-            </h1>
-            <!-- SEO: подзаголовок с ключевыми словами -->
-            <p class="text-slate-400 mb-8 max-w-3xl mx-auto text-lg">
-                Веб-разработчик Виктор Савицкий — создание лендингов по всей Беларуси и удалённо
-            </p>
-            <p class="text-lg sm:text-xl text-slate-400 mb-8 max-w-3xl mx-auto">
-                Создаю продающие лендинги для экспертов и малого бизнеса за 2–5 дней.
-                Быстро, безопасно и с гарантией результата.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#contact" class="btn-primary">Обсудить проект</a>
-                <a href="#portfolio" class="btn-ghost">Смотреть работы</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="py-12 border-y border-white/10 bg-white/5">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="text-3xl sm:text-4xl font-bold gradient-text mb-1">2–5 дн</div>
-                    <div class="text-sm text-slate-400">Срок запуска</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl sm:text-4xl font-bold gradient-text mb-1">&lt;1 сек</div>
-                    <div class="text-sm text-slate-400">Загрузка сайта</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl sm:text-4xl font-bold gradient-text mb-1">100%</div>
-                    <div class="text-sm text-slate-400">Адаптив под мобильные</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl sm:text-4xl font-bold gradient-text mb-1">7 дн</div>
-                    <div class="text-sm text-slate-400">Поддержка после сдачи</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section-pad">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="flex justify-center lg:justify-start">
-                    <div class="relative">
-                        <div
-                            class="absolute -inset-4 bg-gradient-to-r from-vibe-500/30 to-cyan-400/30 rounded-full blur-2xl">
-                        </div>
-                        <img
+                            50: '#f5f3ff
