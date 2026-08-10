@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://viktorcvp.github.io/vabe_portfolio/</loc></url>
-  <url><loc>https://viktorcvp.github.io/avtoservice/</loc></url>
-  <url><loc>https://viktorcvp.github.io/barbershop/</loc></url>
-  <url><loc>https://animated-lokum-7a9fa5.netlify.app/</loc></url>
+  <url><loc>https://viktorcvp.github.io/vabe_portfolio/</loc><lastmod>2026-08-11</lastmod><priority>1.0</priority></url>
+  <url><loc>https://viktorcvp.github.io/vabe_portfolio/offer.html</loc><lastmod>2026-08-10</lastmod><priority>0.6</priority></url>
+  <url><loc>https://viktorcvp.github.io/vabe_portfolio/privacy.html</loc><lastmod>2026-06-16</lastmod><priority>0.3</priority></url>
+  <url><loc>https://viktorcvp.github.io/nutrizionist/</loc><priority>0.7</priority></url>
+  <url><loc>https://viktorcvp.github.io/psiholog/</loc><priority>0.7</priority></url>
+  <url><loc>https://viktorcvp.github.io/coach/</loc><priority>0.7</priority></url>
+  <url><loc>https://viktorcvp.github.io/DentaClinic/</loc><priority>0.7</priority></url>
+  <url><loc>https://viktorcvp.github.io/avtoservice/</loc><priority>0.7</priority></url>
+  <url><loc>https://viktorcvp.github.io/landing/</loc><priority>0.5</priority></url>
 </urlset>
