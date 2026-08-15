@@ -112,14 +112,14 @@
             </div>
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 Сайты, которые превращают посетителей в заявки,<br>
-                <span class="gradient-text">а не просто висят в интернете</span>
+                <span class="gradient-text"><span data-c="tagline">а не просто висят в интернете</span></span>
             </h1>
             <p class="text-slate-400 mb-8 max-w-3xl mx-auto text-lg">
                 Веб-разработчик Виктор Савицкий — создание лендингов по всей Беларуси и удалённо
             </p>
             <p class="text-lg sm:text-xl text-slate-400 mb-8 max-w-3xl mx-auto">
                 Создаю лендинги для экспертов и малого бизнеса за 2–5 дней. Чётко по ТЗ,
-                2 круга правок и поддержка 30 дней после запуска.
+                2 круга правок и поддержка <span data-c="support_days">30 дн</span> после запуска.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#contact" class="btn-primary">Обсудить проект</a>
@@ -145,7 +145,7 @@
                     <div class="text-sm text-slate-400">Адаптив под мобильные</div>
                 </div>
                 <div class="text-center">
-                    <div class="text-3xl sm:text-4xl font-bold gradient-text mb-1">30 дн</div>
+                    <div class="text-3xl sm:text-4xl font-bold gradient-text mb-1"><span data-c="support_days">30 дн</span></div>
                     <div class="text-sm text-slate-400">Поддержка после сдачи</div>
                 </div>
             </div>
@@ -230,12 +230,12 @@
                 <!-- Basic -->
                 <div class="card-glass p-8 flex flex-col">
                     <h3 class="text-xl font-semibold mb-2">Лендинг</h3>
-                    <div class="text-3xl font-bold gradient-text mb-4">от 200 BYN</div>
+                    <div class="text-3xl font-bold gradient-text mb-4"><span data-c="price_landing">от 200 BYN</span></div>
                     <ul class="text-slate-400 text-sm space-y-3 mb-8 flex-1">
                         <li>✓ Одностраничный сайт</li>
                         <li>✓ Адаптив под мобильные</li>
                         <li>✓ Форма заявки</li>
-                        <li>✓ Срок: 2–3 дня</li>
+                        <li>✓ Срок: <span data-c="days_landing">2–3 дня</span></li>
                     </ul>
                     <a href="#contact" class="btn-ghost w-full text-center">Заказать</a>
                 </div>
@@ -243,26 +243,26 @@
                 <div class="card-glass p-8 flex flex-col border-vibe-500/50 relative">
                     <div class="absolute top-0 right-0 bg-vibe-600 text-xs px-3 py-1 rounded-bl-lg">Хит</div>
                     <h3 class="text-xl font-semibold mb-2">Сайт эксперта</h3>
-                    <div class="text-3xl font-bold gradient-text mb-4">от 350 BYN</div>
+                    <div class="text-3xl font-bold gradient-text mb-4"><span data-c="price_expert">от 350 BYN</span></div>
                     <ul class="text-slate-400 text-sm space-y-3 mb-8 flex-1">
                         <li>✓ Всё из тарифа «Лендинг»</li>
                         <li>✓ Блок с кейсами/отзывами</li>
                         <li>✓ Интеграция соцсетей</li>
                         <li>✓ SEO-база</li>
-                        <li>✓ Срок: 3–5 дней</li>
+                        <li>✓ Срок: <span data-c="days_expert">3–5 дней</span></li>
                     </ul>
                     <a href="#contact" class="btn-primary w-full text-center">Заказать</a>
                 </div>
                 <!-- Business -->
                 <div class="card-glass p-8 flex flex-col">
                     <h3 class="text-xl font-semibold mb-2">Многостраничник</h3>
-                    <div class="text-3xl font-bold gradient-text mb-4">от 500 BYN</div>
+                    <div class="text-3xl font-bold gradient-text mb-4"><span data-c="price_multi">от 500 BYN</span></div>
                     <ul class="text-slate-400 text-sm space-y-3 mb-8 flex-1">
                         <li>✓ До 5 страниц</li>
                         <li>✓ Каталог услуг/товаров</li>
                         <li>✓ Расширенное SEO</li>
                         <li>✓ Обучение управлению</li>
-                        <li>✓ Срок: 5–7 дней</li>
+                        <li>✓ Срок: <span data-c="days_multi">5–7 дней</span></li>
                     </ul>
                     <a href="#contact" class="btn-ghost w-full text-center">Заказать</a>
                 </div>
@@ -438,7 +438,9 @@
                 <!-- Project 8 - AI Chat -->
                 <article class="card-glass overflow-hidden group relative">
                     <div class="absolute top-3 right-3 z-10">
-                        <span class="text-xs px-2 py-1 rounded bg-yellow-500/20 text-yellow-300 border border-yellow-500/30">⚠️ Демо-концепт</span>
+                        <span
+                            class="text-xs px-2 py-1 rounded bg-yellow-500/20 text-yellow-300 border border-yellow-500/30">⚠️
+                            Демо-концепт</span>
                     </div>
                     <div
                         class="aspect-video bg-gradient-to-br from-violet-900/40 to-indigo-800/40 flex items-center justify-center">
@@ -453,8 +455,7 @@
                             <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">Анимации</span>
                         </div>
                         <a href="https://viktorcvp.github.io/demo_alesa/" target="_blank"
-                            title="Demo Alesa — пример работ"
-                            class="btn-primary w-full text-xs">Посмотреть
+                            title="Demo Alesa — пример работ" class="btn-primary w-full text-xs">Посмотреть
                             →</a>
                     </div>
                 </article>
@@ -466,7 +467,8 @@
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">Demo Alena</h3>
-                        <p class="text-slate-400 text-sm mb-4">Интерактивный демо-сайт с современным дизайном и адаптивной
+                        <p class="text-slate-400 text-sm mb-4">Интерактивный демо-сайт с современным дизайном и
+                            адаптивной
                             версткой</p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">HTML/CSS</span>
@@ -474,30 +476,13 @@
                             <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">Адаптив</span>
                         </div>
                         <a href="https://viktorcvp.github.io/demo_alena/" target="_blank"
-                            title="Demo Alena — пример работ"
-                            class="btn-primary w-full text-xs">Посмотреть
+                            title="Demo Alena — пример работ" class="btn-primary w-full text-xs">Посмотреть
                             →</a>
                     </div>
                 </article>
             </div>
             <div class="text-center mt-12">
                 <a href="#contact" class="btn-primary">Обсудить ваш проект</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="py-20 bg-white/5">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Отзывы клиентов</h2>
-                <p class="text-slate-400 text-lg">Что говорят те, кто уже заказал сайт</p>
-            </div>
-            <div class="max-w-2xl mx-auto text-center">
-                <p class="text-gray-600 text-lg">
-                    Здесь появятся отзывы после первых проектов. Мне важен каждый отзыв,
-                    поэтому я выкладываюсь на 100%, чтобы вы рекомендовали меня друзьям.
-                </p>
             </div>
         </div>
     </section>
@@ -579,7 +564,7 @@
                 <div class="mt-6 pt-6 border-t border-white/10 text-center">
                     <p class="text-sm text-slate-400 mb-3">Или напишите напрямую:</p>
                     <a href="https://t.me/viktorystel" target="_blank"
-                        class="text-vibe-400 hover:text-vibe-300 font-semibold">@viktorystel в Telegram →</a>
+                        class="text-vibe-400 hover:text-vibe-300 font-semibold"><span data-c="telegram">@viktorystel</span> в Telegram →</a>
                 </div>
             </div>
         </div>
@@ -598,6 +583,29 @@
             </div>
         </div>
     </footer>
+
+    <!-- === УРОВЕНЬ 1: контент из Google-таблицы === -->
+    <script>
+    (function(){
+      const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4td5bxiZkS38JWiDecNiA86AanaHNaooNyXgwssgajTELOIV_ShNPX1mzbRtRVLEDKNtGEq3OrVMK/pub?output=tsv';
+
+      function apply(d){for(const k in d)
+        document.querySelectorAll('[data-c="'+k+'"]')
+          .forEach(el=>el.textContent=d[k]);}
+
+      function parse(t){const o={};t.trim().split('\n').forEach(r=>{
+        let i=r.indexOf('\t'); if(i<0)i=r.indexOf(',');
+        if(i>0){let k=r.slice(0,i).trim(), v=r.slice(i+1).trim();
+          if(v.startsWith('"')&&v.endsWith('"'))v=v.slice(1,-1).replace(/""/g,'"');
+          o[k]=v;}});return o;}
+
+      function fromJSON(){fetch('content.json').then(r=>r.json())
+        .then(apply).catch(()=>{});}
+
+      fetch(SHEET_URL).then(r=>{if(!r.ok)throw 0;return r.text();})
+        .then(t=>apply(parse(t))).catch(fromJSON);
+    })();
+    </script>
 
 </body>
 

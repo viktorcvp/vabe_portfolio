@@ -1,0 +1,24 @@
+local_backend: true
+backend:
+  name: git-gateway
+  branch: master
+
+collections:
+  - name: content
+    label: Контент сайта
+    files:
+      - file: content.json
+        label: Тексты и цены
+        name: site
+        fields:
+          - {name: name, label: Имя, widget: string}
+          - {name: role, label: Роль, widget: string}
+          - {name: tagline, label: Главный заголовок, widget: text}
+          - {name: telegram, label: Telegram, widget: string}
+          - {name: price_landing, label: Цена Лендинг, widget: string}
+          - {name: price_expert, label: Цена Сайт эксперта, widget: string}
+          - {name: price_multi, label: Цена Многостраничник, widget: string}
+          - {name: days_landing, label: Срок Лендинг, widget: string}
+          - {name: days_expert, label: Срок Сайт эксперта, widget: string}
+          - {name: days_multi, label: Срок Многостраничник, widget: string}
+          - {name: support_days, label: Поддержка, widget: string}
