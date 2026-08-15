@@ -145,7 +145,8 @@
                     <div class="text-sm text-slate-400">Адаптив под мобильные</div>
                 </div>
                 <div class="text-center">
-                    <div class="text-3xl sm:text-4xl font-bold gradient-text mb-1"><span data-c="support_days">30 дн</span></div>
+                    <div class="text-3xl sm:text-4xl font-bold gradient-text mb-1"><span data-c="support_days">30
+                            дн</span></div>
                     <div class="text-sm text-slate-400">Поддержка после сдачи</div>
                 </div>
             </div>
@@ -230,7 +231,8 @@
                 <!-- Basic -->
                 <div class="card-glass p-8 flex flex-col">
                     <h3 class="text-xl font-semibold mb-2">Лендинг</h3>
-                    <div class="text-3xl font-bold gradient-text mb-4"><span data-c="price_landing">от 200 BYN</span></div>
+                    <div class="text-3xl font-bold gradient-text mb-4"><span data-c="price_landing">от 200 BYN</span>
+                    </div>
                     <ul class="text-slate-400 text-sm space-y-3 mb-8 flex-1">
                         <li>✓ Одностраничный сайт</li>
                         <li>✓ Адаптив под мобильные</li>
@@ -243,7 +245,8 @@
                 <div class="card-glass p-8 flex flex-col border-vibe-500/50 relative">
                     <div class="absolute top-0 right-0 bg-vibe-600 text-xs px-3 py-1 rounded-bl-lg">Хит</div>
                     <h3 class="text-xl font-semibold mb-2">Сайт эксперта</h3>
-                    <div class="text-3xl font-bold gradient-text mb-4"><span data-c="price_expert">от 350 BYN</span></div>
+                    <div class="text-3xl font-bold gradient-text mb-4"><span data-c="price_expert">от 350 BYN</span>
+                    </div>
                     <ul class="text-slate-400 text-sm space-y-3 mb-8 flex-1">
                         <li>✓ Всё из тарифа «Лендинг»</li>
                         <li>✓ Блок с кейсами/отзывами</li>
@@ -256,7 +259,8 @@
                 <!-- Business -->
                 <div class="card-glass p-8 flex flex-col">
                     <h3 class="text-xl font-semibold mb-2">Многостраничник</h3>
-                    <div class="text-3xl font-bold gradient-text mb-4"><span data-c="price_multi">от 500 BYN</span></div>
+                    <div class="text-3xl font-bold gradient-text mb-4"><span data-c="price_multi">от 500 BYN</span>
+                    </div>
                     <ul class="text-slate-400 text-sm space-y-3 mb-8 flex-1">
                         <li>✓ До 5 страниц</li>
                         <li>✓ Каталог услуг/товаров</li>
@@ -564,7 +568,8 @@
                 <div class="mt-6 pt-6 border-t border-white/10 text-center">
                     <p class="text-sm text-slate-400 mb-3">Или напишите напрямую:</p>
                     <a href="https://t.me/viktorystel" target="_blank"
-                        class="text-vibe-400 hover:text-vibe-300 font-semibold"><span data-c="telegram">@viktorystel</span> в Telegram →</a>
+                        class="text-vibe-400 hover:text-vibe-300 font-semibold"><span
+                            data-c="telegram">@viktorystel</span> в Telegram →</a>
                 </div>
             </div>
         </div>
@@ -586,25 +591,32 @@
 
     <!-- === УРОВЕНЬ 1: контент из Google-таблицы === -->
     <script>
-    (function(){
-      const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4td5bxiZkS38JWiDecNiA86AanaHNaooNyXgwssgajTELOIV_ShNPX1mzbRtRVLEDKNtGEq3OrVMK/pub?output=tsv';
+            (function () {
+                const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4td5bxiZkS38JWiDecNiA86AanaHNaooNyXgwssgajTELOIV_ShNPX1mzbRtRVLEDKNtGEq30rVMK/pub?output=tsv'; function apply(d) {
+                    for (const k in d)
+                        document.querySelectorAll('[data-c="' + k + '"]')
+                            .forEach(el => el.textContent = d[k]);
+                }
 
-      function apply(d){for(const k in d)
-        document.querySelectorAll('[data-c="'+k+'"]')
-          .forEach(el=>el.textContent=d[k]);}
+                function parse(t) {
+                    const o = {}; t.trim().split('\n').forEach(r => {
+                        let i = r.indexOf('\t'); if (i < 0) i = r.indexOf(',');
+                        if (i > 0) {
+                            let k = r.slice(0, i).trim(), v = r.slice(i + 1).trim();
+                            if (v.startsWith('"') && v.endsWith('"')) v = v.slice(1, -1).replace(/""/g, '"');
+                            o[k] = v;
+                        }
+                    }); return o;
+                }
 
-      function parse(t){const o={};t.trim().split('\n').forEach(r=>{
-        let i=r.indexOf('\t'); if(i<0)i=r.indexOf(',');
-        if(i>0){let k=r.slice(0,i).trim(), v=r.slice(i+1).trim();
-          if(v.startsWith('"')&&v.endsWith('"'))v=v.slice(1,-1).replace(/""/g,'"');
-          o[k]=v;}});return o;}
+                function fromJSON() {
+                    fetch('content.json').then(r => r.json())
+                        .then(apply).catch(() => { });
+                }
 
-      function fromJSON(){fetch('content.json').then(r=>r.json())
-        .then(apply).catch(()=>{});}
-
-      fetch(SHEET_URL).then(r=>{if(!r.ok)throw 0;return r.text();})
-        .then(t=>apply(parse(t))).catch(fromJSON);
-    })();
+                fetch(SHEET_URL).then(r => { if (!r.ok) throw 0; return r.text(); })
+                    .then(t => apply(parse(t))).catch(fromJSON);
+            })();
     </script>
 
 </body>
