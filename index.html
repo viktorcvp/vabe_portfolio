@@ -273,22 +273,19 @@
             </div>
         </div>
     </section>
-    <!-- VK Demo Section -->
+    <!-- Demo Section -->
     <section class="section-pad">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl sm:text-4xl font-bold mb-4">Посмотрите вживую</h2>
             <p class="text-slate-400 text-lg mb-8">Клиент сам меняет цены на сайте — с телефона, без программиста</p>
-            <div class="bg-white rounded-2xl p-3 text-left">
-                <div id="vk_post_331352098_108"></div>
-            </div>
+            <a href="https://vk.ru/wall331352098_108" target="_blank"
+                class="block bg-white/5 border border-white/10 rounded-2xl p-4 hover:border-purple-500 transition">
+                <img src="img/demo.jpg" alt="Демо: клиент меняет цены с телефона" class="rounded-xl mb-4 w-full">
+                <span class="text-lg font-semibold" style="color:#c4b5fd">▶ Смотреть 38 секунд — как клиент сам правит
+                    сайт</span>
+            </a>
         </div>
     </section>
-    <script type="text/javascript" src="https://vk.ru/js/api/openapi.js"></script>
-    <script type="text/javascript">
-            (function () {
-                VK.Widgets.Post("vk_post_331352098_108", 331352098, 108, "02skz0dSqSV9c5opmeVAZ8fDzG9n");
-            }());
-    </script>
     <!-- Portfolio Section -->
     <section id="portfolio" class="section-pad bg-white/5">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -606,32 +603,32 @@
 
     <!-- === УРОВЕНЬ 1: контент из Google-таблицы === -->
     <script>
-        (function () {
-            const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4td5bxiZkS38JWiDecNiA86AanaHNaooNyXgwssgajTELOIV_ShNPX1mzbRtRVLEDKNtGEq30rVMK/pub?output=tsv'; function apply(d) {
-                for (const k in d)
-                    document.querySelectorAll('[data-c="' + k + '"]')
-                        .forEach(el => el.textContent = d[k]);
-            }
+            (function () {
+                const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4td5bxiZkS38JWiDecNiA86AanaHNaooNyXgwssgajTELOIV_ShNPX1mzbRtRVLEDKNtGEq30rVMK/pub?output=tsv'; function apply(d) {
+                    for (const k in d)
+                        document.querySelectorAll('[data-c="' + k + '"]')
+                            .forEach(el => el.textContent = d[k]);
+                }
 
-            function parse(t) {
-                const o = {}; t.trim().split('\n').forEach(r => {
-                    let i = r.indexOf('\t'); if (i < 0) i = r.indexOf(',');
-                    if (i > 0) {
-                        let k = r.slice(0, i).trim(), v = r.slice(i + 1).trim();
-                        if (v.startsWith('"') && v.endsWith('"')) v = v.slice(1, -1).replace(/""/g, '"');
-                        o[k] = v;
-                    }
-                }); return o;
-            }
+                function parse(t) {
+                    const o = {}; t.trim().split('\n').forEach(r => {
+                        let i = r.indexOf('\t'); if (i < 0) i = r.indexOf(',');
+                        if (i > 0) {
+                            let k = r.slice(0, i).trim(), v = r.slice(i + 1).trim();
+                            if (v.startsWith('"') && v.endsWith('"')) v = v.slice(1, -1).replace(/""/g, '"');
+                            o[k] = v;
+                        }
+                    }); return o;
+                }
 
-            function fromJSON() {
-                fetch('content.json').then(r => r.json())
-                    .then(apply).catch(() => { });
-            }
+                function fromJSON() {
+                    fetch('content.json').then(r => r.json())
+                        .then(apply).catch(() => { });
+                }
 
-            fetch(SHEET_URL).then(r => { if (!r.ok) throw 0; return r.text(); })
-                .then(t => apply(parse(t))).catch(fromJSON);
-        })();
+                fetch(SHEET_URL).then(r => { if (!r.ok) throw 0; return r.text(); })
+                    .then(t => apply(parse(t))).catch(fromJSON);
+            })();
     </script>
 
 </body>
