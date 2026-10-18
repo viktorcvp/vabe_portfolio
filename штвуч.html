@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 🔍 SEO -->
+    <title>Виктор Савицкий | Веб-разработчик | Создание лендингов по всей Беларуси и удалённо</title>
+    <meta name="description"
+        content="Создание быстрых адаптивных лендингов для бизнеса и экспертов. Срок 2-5 дней, от 200 BYN. HTML, Tailwind CSS. Примеры работ в портфолио.">
+    <meta name="keywords"
+        content="создание сайтов, лендинг, веб-разработчик, Беларусь, удалённо, HTML, Tailwind CSS, адаптивная верстка">
+    <meta name="author" content="Виктор Савицкий">
+    <link rel="canonical" href="https://viktorcvp.github.io/vabe_portfolio/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+
+    <!-- Preconnect: ускорение загрузки -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Open Graph: превью ссылок в мессенджерах -->
+    <meta property="og:title" content="Виктор Савицкий | Веб-разработчик">
+    <meta property="og:description" content="Создание современных лендингов под ключ. Быстро, качественно, адаптивно.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://viktorcvp.github.io/vabe_portfolio/">
+    <meta property="og:image" content="https://viktorcvp.github.io/vabe_portfolio/img/phone1.jpg">
+
+    <!-- Schema.org: расширенные сниппеты с ценами в Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Виктор Савицкий — Веб-разработчик",
+      "description": "Создание лендингов и сайтов для экспертов и малого бизнеса в Беларуси и удалённо. От 200 BYN, срок 2–5 дней.",
+      "url": "https://viktorcvp.github.io/vabe_portfolio/",
+      "image": "https://viktorcvp.github.io/vabe_portfolio/img/phone1.jpg",
+      "priceRange": "от 200 BYN",
+      "areaServed": { "@type": "Country", "name": "Беларусь" },
+      "serviceType": ["Создание лендингов", "Сайты-визитки", "Многостраничные сайты"],
+      "provider": { "@type": "Person", "name": "Виктор Савицкий", "identifier": "AC1173041" },
+      "offers": [
+        { "@type": "Offer", "name": "Лендинг", "price": "200", "priceCurrency": "BYN", "description": "Одностраничный сайт с формой заявки, адаптив, срок 2–3 дня." },
+        { "@type": "Offer", "name": "Сайт эксперта", "price": "350", "priceCurrency": "BYN", "description": "Лендинг + кейсы/отзывы, интеграция соцсетей, SEO-база, срок 3–5 дней." },
+        { "@type": "Offer", "name": "Многостраничник", "price": "500", "priceCurrency": "BYN", "description": "До 5 страниц, каталог услуг, расширенное SEO, обучение, срок 5–7 дней." }
+      ]
+    }
+    </script>
+
+    <!-- 🎨 Стили и скрипты -->
+    <link rel="stylesheet" href="css/app.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com?safe=true"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        vibe: {
+                            50: '#f5f3ff', 100: '#ede9fe', 200: '#ddd6fe', 300: '#c4b5fd',
+                            400: '#a78bfa', 500: '#8b5cf6', 600: '#7c3aed', 700: '#6d28d9',
+                            800: '#5b21b6', 900: '#4c1d95',
+                        },
+                        glow: { cyan: '#22d3ee', pink: '#f472b6' }
+                    },
+                    boxShadow: { glow: '0 0 20px rgba(139, 92, 246, 0.5)' }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100 antialiased mesh-bg">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="text-xl font-bold gradient-text">Виктор | Веб-разработчик</a>
+                <div class="hidden md:flex gap-8">
+                    <a href="#about" class="nav-link">Обо мне</a>
+                    <a href="#pricing" class="nav-link">Цены</a>
+                    <a href="#portfolio" class="nav-link">Портфолио</a>
+                    <a href="#process" class="nav-link">Процесс</a>
+                    <a href="#reviews" class="nav-link">Отзывы</a>
+                </div>
+                <a href="https://t.me/viktorystel" target="_blank" class="btn-primary text-xs">Написать в Telegram</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="pt-32 pb-20 lg:pt-40 lg:pb-28">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div
+                class="inline-flex items-center gap-2 rounded-full border border-vibe-400/30 bg-vibe-500/10 px-4 py-1.5 text-xs font-medium text-vibe-200 mb-6">
+                <span class="relative flex h-2 w-2">
+                    <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-vibe-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-vibe-500"></span>
+                </span>
+                Открыт для новых проектов
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                Сайты, которые превращают посетителей в заявки,<br>
+                <span class="gradient-text"><span data-c="tagline">а не просто висят в интернете</span></span>
+            </h1>
+            <p class="text-slate-400 mb-8 max-w-3xl mx-auto text-lg">
+                Веб-разработчик Виктор Савицкий — создание лендингов по всей Беларуси и удалённо
+            </p>
+            <p class="text-lg sm:text-xl text-slate-400 mb-8 max-w-3xl mx-auto">
+                Создаю лендинги для экспертов и малого бизнеса за 2–5 дней. Чётко по ТЗ,
+                2 круга правок и поддержка <span data-c="support_days">30 дн</span> после запуска.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact" class="btn-primary">Обсудить проект</a>
+                <a href="#portfolio" class="btn-ghost">Смотреть работы</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 border-y border-white/10 bg-white/5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-3xl sm:text-4xl font-bold gradient-text mb-1">2–5 дн</div>
+                    <div class="text-sm text-slate-400">Срок запуска</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl sm:text-4xl font-bold gradient-text mb-1">&lt;1 сек</div>
+                    <div class="text-sm text-slate-400">Загрузка сайта</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl sm:text-4xl font-bold gradient-text mb-1">100%</div>
+                    <div class="text-sm text-slate-400">Адаптив под мобильные</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl sm:text-4xl font-bold gradient-text mb-1"><span data-c="support_days">30
+                            дн</span></div>
+                    <div class="text-sm text-slate-400">Поддержка после сдачи</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-pad">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="flex justify-center">
+                    <div class="relative inline-flex items-center justify-center">
+                        <div
+                            class="absolute -inset-4 bg-gradient-to-r from-vibe-500/20 to-cyan-400/20 rounded-full blur-2xl">
+                        </div>
+                        <div class="avatar-container">
+                            <img src="img/phone1.jpg" alt="Виктор Савицкий — веб-разработчик из Беларуси"
+                                class="avatar-img" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="space-y-4 text-slate-300 leading-relaxed">
+                        <p>Сайт без ежемесячной подписки. Быстрый, безопасный — и полностью ваш.</p>
+                        <p>Я создаю лендинги для экспертов и малого бизнеса — сайты, которые превращают посетителей в
+                            заявки.</p>
+                        <p><strong>Почему это выгодно:</strong></p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>Без сложных конструкторов и CMS — вы не платите аренду каждый месяц</li>
+                            <li>Быстро и безопасно — без лишних технологий и баз данных</li>
+                            <li>Сайт полностью принадлежит вам — никаких скрытых платежей</li>
+                        </ul>
+                        <p>Работаю удалённо по всей Беларуси и за её пределами. Мне важен каждый отзыв, поэтому
+                            выкладываюсь на 100%, чтобы вы рекомендовали меня друзьям.</p>
+                        <p class="pt-2">Виктор, веб-разработчик лендингов</p>
+                    </div>
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <span class="badge">HTML5</span>
+                        <span class="badge">Tailwind CSS</span>
+                        <span class="badge">Alpine.js</span>
+                        <span class="badge">Адаптив</span>
+                        <span class="badge">SEO-база</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Me -->
+    <section class="section-pad bg-white/5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="card-glass p-6">
+                    <div class="text-3xl mb-3">⚡</div>
+                    <h3 class="text-xl font-semibold mb-2">Быстро</h3>
+                    <p class="text-slate-400 text-sm">Средний срок — 3 дня. Не затягиваю проекты и всегда на связи.</p>
+                </div>
+                <div class="card-glass p-6">
+                    <div class="text-3xl mb-3">💰</div>
+                    <h3 class="text-xl font-semibold mb-2">Честная цена</h3>
+                    <p class="text-slate-400 text-sm">Фиксированная стоимость до начала работ. Никаких скрытых платежей.
+                    </p>
+                </div>
+                <div class="card-glass p-6">
+                    <div class="text-3xl mb-3">🎯</div>
+                    <h3 class="text-xl font-semibold mb-2">На результат</h3>
+                    <p class="text-slate-400 text-sm">Делаю сайты с упором на маркетинг и конверсию, а не просто
+                        «красивые картинки».</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section-pad">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Стоимость услуг</h2>
+                <p class="text-slate-400 text-lg">Прозрачные цены без абонентской платы</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="card-glass p-8 flex flex-col">
+                    <h3 class="text-xl font-semibold mb-2">Лендинг</h3>
+                    <div class="mb-4">
+                        <div class="text-3xl font-bold gradient-text"><span data-c="price_landing">от 200 BYN</span>
+                        </div>
+                        <div class="text-sm text-slate-400 mt-1" data-rub="200">≈ от 5 800 ₽</div>
+                    </div>
+                    <ul class="text-slate-400 text-sm space-y-3 mb-8 flex-1">
+                        <li>✓ Одностраничный сайт</li>
+                        <li>✓ Адаптив под мобильные</li>
+                        <li>✓ Форма заявки</li>
+                        <li>✓ Срок: <span data-c="days_landing">2–3 дня</span></li>
+                    </ul>
+                    <a href="#contact" class="btn-ghost w-full text-center">Заказать</a>
+                </div>
+                <div class="card-glass p-8 flex flex-col border-vibe-500/50 relative">
+                    <div class="absolute top-0 right-0 bg-vibe-600 text-xs px-3 py-1 rounded-bl-lg">Хит</div>
+                    <h3 class="text-xl font-semibold mb-2">Сайт эксперта</h3>
+                    <div class="mb-4">
+                        <div class="text-3xl font-bold gradient-text"><span data-c="price_expert">от 350 BYN</span>
+                        </div>
+                        <div class="text-sm text-slate-400 mt-1" data-rub="350">≈ от 10 150 ₽</div>
+                    </div>
+                    <ul class="text-slate-400 text-sm space-y-3 mb-8 flex-1">
+                        <li>✓ Всё из тарифа «Лендинг»</li>
+                        <li>✓ Блок с кейсами/отзывами</li>
+                        <li>✓ Интеграция соцсетей</li>
+                        <li>✓ SEO-база</li>
+                        <li>✓ Срок: <span data-c="days_expert">3–5 дней</span></li>
+                    </ul>
+                    <a href="#contact" class="btn-primary w-full text-center">Заказать</a>
+                </div>
+                <div class="card-glass p-8 flex flex-col">
+                    <h3 class="text-xl font-semibold mb-2">Многостраничник</h3>
+                    <div class="mb-4">
+                        <div class="text-3xl font-bold gradient-text"><span data-c="price_multi">от 500 BYN</span></div>
+                        <div class="text-sm text-slate-400 mt-1" data-rub="500">≈ от 14 500 ₽</div>
+                    </div>
+                    <ul class="text-slate-400 text-sm space-y-3 mb-8 flex-1">
+                        <li>✓ До 5 страниц</li>
+                        <li>✓ Каталог услуг/товаров</li>
+                        <li>✓ Расширенное SEO</li>
+                        <li>✓ Обучение управлению</li>
+                        <li>✓ Срок: <span data-c="days_multi">5–7 дней</span></li>
+                    </ul>
+                    <a href="#contact" class="btn-ghost w-full text-center">Заказать</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VK Demo Section -->
+    <section class="section-pad">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4">Посмотрите вживую</h2>
+            <p class="text-slate-400 text-lg mb-8">Клиент сам меняет цены на сайте — с телефона, без программиста</p>
+            <div class="bg-white rounded-2xl p-3 text-left">
+                <div id="vk_post_331352098_108"></div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="https://vk.ru/js/api/openapi.js"></script>
+    <script type="text/javascript">
+        (function () {
+            VK.Widgets.Post("vk_post_331352098_108", 331352098, 108, "02skz0dSqSV9c5opmeVAZ8fDzG9n");
+        }());
+    </script>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section-pad bg-white/5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Примеры работ</h2>
+                <p class="text-slate-400 text-lg">Реальные решения для разных ниш</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <article class="card-glass overflow-hidden group">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-rose-900/40 to-orange-900/40 flex items-center justify-center">
+                        <div class="text-6xl">🌸</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Лендинг женской конференции</h3>
+                        <p class="text-slate-400 mb-4">«Ты пришла в этот мир не случайно», Гродно: форма заявки в
+                            Telegram, карточки спикеров, SEO и политика конфиденциальности.</p>
+                        <a href="https://viktorcvp.github.io/lyba/" target="_blank"
+                            class="text-violet-400 font-semibold hover:text-violet-300">Смотреть сайт →</a>
+                    </div>
+                </article>
+                <article class="card-glass overflow-hidden group">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-emerald-900/40 to-stone-800/40 flex items-center justify-center">
+                        <div class="text-6xl">🥗</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Нутрициолог Анна</h3>
+                        <p class="text-slate-400 text-sm mb-4">Лендинг для нутрициолога с эко-дизайном, тарифами и
+                            формой записи</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">HTML5</span>
+                            <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">Tailwind CSS</span>
+                            <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">Alpine.js</span>
+                        </div>
+                        <a href="https://viktorcvp.github.io/nutrizionist/" target="_blank"
+                            class="btn-primary w-full text-xs">Посмотреть →</a>
+                    </div>
+                </article>
+                <article class="card-glass overflow-hidden group">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-indigo-900/40 to-teal-800/40 flex items-center justify-center">
+                        <div class="text-6xl">🧠</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Психолог Елена</h3>
+                        <p class="text-slate-400 text-sm mb-4">Конверсионный лендинг для психолога с услугами, ценами и
+                            формой записи</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">HTML5</span>
+                            <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">Tailwind CSS</span>
+                            <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">Alpine.js</span>
+                        </div>
+                        <a href="https://viktorcvp.github.io/psiholog/" target="_blank"
+                            class="btn-primary w-full text-xs">Посмотреть →</a>
+                    </div>
+                </article>
+                <article class="card-glass overflow-hidden group">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-orange-900/40 to-amber-800/40 flex items-center justify-center">
+                        <div class="text-6xl">🎯</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Коуч Алексей</h3>
+                        <p class="text-slate-400 text-sm mb-4">Сайт коуча с услугами, форматом работы и формой записи
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">HTML5</span>
+                            <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">Tailwind CSS</span>
+                            <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">Alpine.js</span>
+                        </div>
+                        <a href="https://viktorcvp.github.io/coach/" target="_blank"
+                            class="btn-primary w-full text-xs">Посмотреть →</a>
+                    </div>
+                </article>
+                <article class="card-glass overflow-hidden group">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-teal-900/40 to-blue-800/40 flex items-center justify-center">
+                        <div class="text-6xl">🦷</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">DentaClinic</h3>
+                        <p class="text-slate-400 text-sm mb-4">Многостраничный сайт стоматологической клиники: услуги,
+                            врачи, цены и онлайн-запись</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">HTML5</span>
+                            <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">Tailwind CSS</span>
+                            <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">Alpine.js</span>
+                        </div>
+                        <a href="https://viktorcvp.github.io/DentaClinic/" target="_blank"
+                            class="btn-primary w-full text-xs">Посмотреть →</a>
+                    </div>
+                </article>
+                <article class="card-glass overflow-hidden group">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-amber-900/40 to-stone-800/40 flex items-center justify-center">
+                        <div class="text-6xl">☕</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Кофейня «Зерно»</h3>
+                        <p class="text-slate-400 text-sm mb-4">Лендинг с квизом подбора кофе и программой лояльности</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">Alpine.js</span>
+                            <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">Квиз</span>
+                        </div>
+                        <a href="https://coffee-vik.netlify.app/" target="_blank"
+                            class="btn-primary w-full text-xs">Посмотреть →</a>
+                    </div>
+                </article>
+                <article class="card-glass overflow-hidden group">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-red-900/40 to-orange-900/40 flex items-center justify-center">
+                        <div class="text-6xl">🔧</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">AutoPro Автосервис</h3>
+                        <p class="text-slate-400 text-sm mb-4">Лендинг автосервиса с услугами, ценами и формой записи
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">Tailwind</span>
+                            <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">Alpine.js</span>
+                        </div>
+                        <a href="https://viktorcvp.github.io/avtoservice/" target="_blank"
+                            class="btn-primary w-full text-xs">Посмотреть →</a>
+                    </div>
+                </article>
+                <article class="card-glass overflow-hidden group">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-blue-900/40 to-cyan-800/40 flex items-center justify-center">
+                        <div class="text-6xl">🛡️</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">AI Security Platform</h3>
+                        <p class="text-slate-400 text-sm mb-4">Корпоративный лендинг для IT-компании по
+                            кибербезопасности</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">HTML/CSS</span>
+                            <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">B2B</span>
+                        </div>
+                        <a href="https://viktorcvp.github.io/landing/" target="_blank"
+                            class="btn-primary w-full text-xs">Посмотреть →</a>
+                    </div>
+                </article>
+                <article class="card-glass overflow-hidden group">
+                    <div
+                        class="aspect-video bg-gradient-to-br from-stone-900/60 to-black/60 flex items-center justify-center">
+                        <div class="text-6xl">💈</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">BRUT Barbershop</h3>
+                        <p class="text-slate-400 text-sm mb-4">Сайт барбершопа с премиум-дизайном, анимациями и
+                            онлайн-записью</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">Tailwind</span>
+                            <span class="text-xs px-2 py-1 rounded bg-white/5 text-slate-300">Alpine.js</span>
+                        </div>
+                        <a href="https://barbershop-v.netlify.app/" target="_blank"
+                            class="btn-primary w-full text-xs">Посмотреть →</a>
+                    </div>
+                </article>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#contact" class="btn-primary">Обсудить ваш проект</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="section-pad">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4">Как я работаю</h2>
+                <p class="text-slate-400 text-lg">Прозрачный процесс от заявки до запуска</p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="card-glass p-6 text-center">
+                    <div
+                        class="w-12 h-12 rounded-full bg-vibe-500/20 flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-white">
+                        1</div>
+                    <h3 class="font-semibold mb-2">Заявка</h3>
+                    <p class="text-sm text-slate-400">Вы описываете задачу в Telegram или через форму</p>
+                </div>
+                <div class="card-glass p-6 text-center">
+                    <div
+                        class="w-12 h-12 rounded-full bg-vibe-500/20 flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-white">
+                        2</div>
+                    <h3 class="font-semibold mb-2">Брифинг</h3>
+                    <p class="text-sm text-slate-400">Уточняем детали, фиксируем цену</p>
+                </div>
+                <div class="card-glass p-6 text-center">
+                    <div
+                        class="w-12 h-12 rounded-full bg-vibe-500/20 flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-white">
+                        3</div>
+                    <h3 class="font-semibold mb-2">Разработка</h3>
+                    <p class="text-sm text-slate-400">Делаю сайт за 2–5 дней, показываю прогресс</p>
+                </div>
+                <div class="card-glass p-6 text-center">
+                    <div
+                        class="w-12 h-12 rounded-full bg-vibe-500/20 flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-white">
+                        4</div>
+                    <h3 class="font-semibold mb-2">Запуск</h3>
+                    <p class="text-sm text-slate-400">Размещаю сайт, передаю доступы</p>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="#contact" class="btn-ghost">Оставить заявку</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-pad bg-white/5">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4">Готовы начать?</h2>
+            <p class="text-slate-400 mb-8">Отвечу в течение пары часов. Расскажите о проекте — рассчитаю
+                точную стоимость.</p>
+            <div class="card-glass p-8">
+
+                <!-- ФОРМА ОБНОВЛЕНА ПОД WEB3FORMS -->
+                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" @submit.prevent="handleSubmit()" class="space-y-4 text-left"
+                    x-data="{
+                        submitted: false,
+                        sending: false,
+                        errors: {},
+                        async handleSubmit() {
+                            const f = this.$root;
+                            const name = f.querySelector('[name=name]').value.trim();

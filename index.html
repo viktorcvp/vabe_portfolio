@@ -292,9 +292,9 @@
     </section>
     <script type="text/javascript" src="https://vk.ru/js/api/openapi.js"></script>
     <script type="text/javascript">
-        (function () {
-            VK.Widgets.Post("vk_post_331352098_108", 331352098, 108, "02skz0dSqSV9c5opmeVAZ8fDzG9n");
-        }());
+            (function () {
+                VK.Widgets.Post("vk_post_331352098_108", 331352098, 108, "02skz0dSqSV9c5opmeVAZ8fDzG9n");
+            }());
     </script>
 
     <!-- Portfolio Section -->
@@ -508,6 +508,7 @@
     </section>
 
     <!-- Contact Section -->
+    <!-- Contact Section -->
     <section id="contact" class="section-pad bg-white/5">
         <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl sm:text-4xl font-bold mb-4">Готовы начать?</h2>
@@ -516,8 +517,8 @@
             <div class="card-glass p-8">
 
                 <!-- ФОРМА ОБНОВЛЕНА ПОД WEB3FORMS -->
-                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" @submit.prevent="handleSubmit()" class="space-y-4 text-left"
-                    x-data="{
+                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST"
+                    @submit.prevent="handleSubmit()" class="space-y-4 text-left" x-data="{
                         submitted: false,
                         sending: false,
                         errors: {},
@@ -525,4 +526,97 @@
                             const f = this.$root;
                             const name = f.querySelector('[name=name]').value.trim();
                             const contact = f.querySelector('[name=contact]').value.trim();
-                            const message = f.querySelector('[name=message]').value
+                            const message = f.querySelector('[name=message]').value.trim();
+                            const consent = f.querySelector('[name=consent]').checked;
+                            const marketing = f.querySelector('[name=marketing]').checked;
+                            
+                            this.errors = {};
+                            if (name.length < 2) this.errors.name = 'Укажите имя';
+                            if (contact.length < 3) this.errors.contact = 'Укажите контакт';
+                            if (message.length < 10) this.errors.message = 'Опишите задачу подробнее';
+                            if (!consent) this.errors.consent = 'Необходимо согласие на обработку данных';
+                            
+                            if (Object.keys(this.errors).length) return;
+                            
+                            this.sending = true;
+                            try {
+                                const res = await fetch('https://api.web3forms.com/submit', {
+                                    method: 'POST',
+                                    headers: { 
+                                        'Content-Type': 'application/json',
+                                        'Accept': 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        access_key: " ffa0e9aa-f5c6-42c9-b912-8bc1eec9637d",
+                    subject: "Новая заявка с портфолио" , name: name, contact: contact, message: message, consent:
+                    consent ? 'Да' : 'Нет' , marketing: marketing ? 'Да' : 'Нет' }) }); if (!res.ok) throw new
+                    Error('Web3Forms вернул ' + res.status);
+                                this.submitted = true;
+                            } catch (err) {
+                                this.errors.submit = ' Не удалось отправить. Напишите в Telegram: @viktorystel'; }
+                    finally { this.sending=false; } } }">
+
+                    <!-- Скрытые поля для Web3Forms -->
+                    <input type="hidden" name="access_key" value="ffa0e9aa-f5c6-42c9-b912-8bc1eec9637d">
+                    <input type="hidden" name="subject" value="Новая заявка с портфолио">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                    <div>
+                        <label class="label-field">Ваше имя</label>
+                        <input type="text" name="name" class="input-field" placeholder="Как к вам обращаться?" required
+                            :class="errors.name ? '!border-red-500' : ''">
+                        <p x-show="errors.name" x-text="errors.name" class="text-red-400 text-xs mt-1"></p>
+                    </div>
+                    <div>
+                        <label class="label-field">Email или Telegram</label>
+                        <input type="text" name="contact" class="input-field" placeholder="Для связи" required
+                            :class="errors.contact ? '!border-red-500' : ''">
+                        <p x-show="errors.contact" x-text="errors.contact" class="text-red-400 text-xs mt-1"></p>
+                    </div>
+                    <div>
+                        <label class="label-field">Описание задачи</label>
+                        <textarea name="message" class="input-field" rows="4"
+                            placeholder="Какой сайт нужен? Для какого бизнеса?" required
+                            :class="errors.message ? '!border-red-500' : ''"></textarea>
+                        <p x-show="errors.message" x-text="errors.message" class="text-red-400 text-xs mt-1"></p>
+                    </div>
+                    <div>
+                        <label class="flex items-start gap-3 cursor-pointer text-sm text-slate-400">
+                            <input type="checkbox" name="consent" required
+                                class="mt-0.5 w-4 h-4 rounded border-slate-600 bg-slate-800 text-vibe-500 focus:ring-vibe-500">
+                            <span>Я согласен на обработку персональных данных в соответствии с <a href="privacy.html"
+                                    target="_blank" class="text-vibe-400 hover:text-vibe-300 underline">политикой
+                                    конфиденциальности</a></span>
+                        </label>
+                        <p x-show="errors.consent" x-text="errors.consent" class="text-red-400 text-xs mt-1"></p>
+                    </div>
+                    <div>
+                        <label class="flex items-start gap-3 cursor-pointer text-sm text-slate-400">
+                            <input type="checkbox" name="marketing"
+                                class="mt-0.5 w-4 h-4 rounded border-slate-600 bg-slate-800 text-vibe-500 focus:ring-vibe-500">
+                            <span>Я согласен получать рекламные и информационные рассылки</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary w-full" x-show="!submitted" :disabled="sending">
+                        <span x-show="!sending">Отправить заявку</span>
+                        <span x-show="sending">Отправка...</span>
+                    </button>
+
+                    <div x-show="submitted" class="text-center py-4 text-green-400" style="display: none;">
+                        ✓ Заявка отправлена! Отвечу в течение пары часов.
+                    </div>
+
+                    <p x-show="errors.submit" x-text="errors.submit" class="text-red-400 text-sm text-center"
+                        style="display: none;"></p>
+                </form>
+
+                <div class="mt-6 pt-6 border-t border-white/10 text-center">
+                    <p class="text-sm text-slate-400 mb-3">Или напишите напрямую:</p>
+                    <a href="https://t.me/viktorystel" target="_blank"
+                        class="text-vibe-400 hover:text-vibe-300 font-semibold"><span
+                            data-c="telegram">@viktorystel</span> в Telegram →</a>
+                </div>
+            </div>
+        </div>
+    </section>
