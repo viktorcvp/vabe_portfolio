@@ -12,7 +12,7 @@
     <meta name="keywords"
         content="создание сайтов, лендинг, веб-разработчик, Беларусь, удалённо, HTML, Tailwind CSS, адаптивная верстка">
     <meta name="author" content="Виктор Савицкий">
-    <link rel="canonical" href="https://vik-portfolio.netlify.app/">
+    <link rel="canonical" href="https://viktorcvp.github.io/vabe_portfolio/">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
@@ -26,8 +26,8 @@
     <meta property="og:title" content="Виктор Савицкий | Веб-разработчик">
     <meta property="og:description" content="Создание современных лендингов под ключ. Быстро, качественно, адаптивно.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://vik-portfolio.netlify.app/">
-    <meta property="og:image" content="https://vik-portfolio.netlify.app/img/phone1.jpg">
+    <meta property="og:url" content="https://viktorcvp.github.io/vabe_portfolio/">
+    <meta property="og:image" content="https://viktorcvp.github.io/vabe_portfolio/img/phone1.jpg">
 
     <!-- Schema.org: расширенные сниппеты с ценами в Google -->
     <script type="application/ld+json">
@@ -36,8 +36,8 @@
       "@type": "ProfessionalService",
       "name": "Виктор Савицкий — Веб-разработчик",
       "description": "Создание лендингов и сайтов для экспертов и малого бизнеса в Беларуси и удалённо. От 200 BYN, срок 2–5 дней.",
-      "url": "https://vik-portfolio.netlify.app/",
-      "image": "https://vik-portfolio.netlify.app/img/phone1.jpg",
+      "url": "https://viktorcvp.github.io/vabe_portfolio/",
+      "image": "https://viktorcvp.github.io/vabe_portfolio/img/phone1.jpg",
       "priceRange": "от 200 BYN",
       "areaServed": { "@type": "Country", "name": "Беларусь" },
       "serviceType": ["Создание лендингов", "Сайты-визитки", "Многостраничные сайты"],
@@ -515,8 +515,8 @@
                 точную стоимость.</p>
             <div class="card-glass p-8">
 
-                <form id="contact-form" name="contact" method="POST" data-netlify="true"
-                    netlify-honeypot="bot-field" @submit.prevent="handleSubmit()" class="space-y-4 text-left"
+                <!-- ФОРМА ОБНОВЛЕНА ПОД WEB3FORMS -->
+                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" @submit.prevent="handleSubmit()" class="space-y-4 text-left"
                     x-data="{
                         submitted: false,
                         sending: false,
@@ -525,183 +525,4 @@
                             const f = this.$root;
                             const name = f.querySelector('[name=name]').value.trim();
                             const contact = f.querySelector('[name=contact]').value.trim();
-                            const message = f.querySelector('[name=message]').value.trim();
-                            const consent = f.querySelector('[name=consent]').checked;
-                            const marketing = f.querySelector('[name=marketing]').checked;
-                            this.errors = {};
-                            if (name.length < 2) this.errors.name = 'Укажите имя';
-                            if (contact.length < 3) this.errors.contact = 'Укажите контакт';
-                            if (message.length < 10) this.errors.message = 'Опишите задачу подробнее';
-                            if (!consent) this.errors.consent = 'Необходимо согласие на обработку данных';
-                            if (Object.keys(this.errors).length) return;
-                            this.sending = true;
-                            try {
-                                const body = new URLSearchParams({
-                                    'form-name': 'contact',
-                                    'name': name,
-                                    'contact': contact,
-                                    'message': message,
-                                    'consent': consent ? 'yes' : 'no',
-                                    'marketing': marketing ? 'yes' : 'no'
-                                });
-                                const res = await fetch('/', {
-                                    method: 'POST',
-                                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                                    body: body.toString()
-                                });
-                                if (!res.ok) throw new Error('Netlify вернул ' + res.status);
-                                this.submitted = true;
-                            } catch (err) {
-                                this.errors.submit = 'Не удалось отправить. Напишите в Telegram: @viktorystel';
-                            } finally {
-                                this.sending = false;
-                            }
-                        }
-                    }">
-
-                    <!-- Обязательные скрытые поля для Netlify -->
-                    <input type="hidden" name="form-name" value="contact">
-                    <input type="hidden" name="bot-field" style="display:none">
-
-                    <div>
-                        <label class="label-field">Ваше имя</label>
-                        <input type="text" name="name" class="input-field" placeholder="Как к вам обращаться?" required
-                            :class="errors.name ? '!border-red-500' : ''">
-                        <p x-show="errors.name" x-text="errors.name" class="text-red-400 text-xs mt-1"></p>
-                    </div>
-                    <div>
-                        <label class="label-field">Email или Telegram</label>
-                        <input type="text" name="contact" class="input-field" placeholder="Для связи" required
-                            :class="errors.contact ? '!border-red-500' : ''">
-                        <p x-show="errors.contact" x-text="errors.contact" class="text-red-400 text-xs mt-1"></p>
-                    </div>
-                    <div>
-                        <label class="label-field">Описание задачи</label>
-                        <textarea name="message" class="input-field" rows="4"
-                            placeholder="Какой сайт нужен? Для какого бизнеса?" required
-                            :class="errors.message ? '!border-red-500' : ''"></textarea>
-                        <p x-show="errors.message" x-text="errors.message" class="text-red-400 text-xs mt-1"></p>
-                    </div>
-                    <div>
-                        <label class="flex items-start gap-3 cursor-pointer text-sm text-slate-400">
-                            <input type="checkbox" name="consent" required
-                                class="mt-0.5 w-4 h-4 rounded border-slate-600 bg-slate-800 text-vibe-500 focus:ring-vibe-500">
-                            <span>Я согласен на обработку персональных данных в соответствии с <a href="privacy.html"
-                                    target="_blank" class="text-vibe-400 hover:text-vibe-300 underline">политикой
-                                    конфиденциальности</a></span>
-                        </label>
-                        <p x-show="errors.consent" x-text="errors.consent" class="text-red-400 text-xs mt-1"></p>
-                    </div>
-                    <div>
-                        <label class="flex items-start gap-3 cursor-pointer text-sm text-slate-400">
-                            <input type="checkbox" name="marketing"
-                                class="mt-0.5 w-4 h-4 rounded border-slate-600 bg-slate-800 text-vibe-500 focus:ring-vibe-500">
-                            <span>Я согласен получать рекламные и информационные рассылки</span>
-                        </label>
-                    </div>
-
-                    <button type="submit" class="btn-primary w-full" x-show="!submitted" :disabled="sending">
-                        <span x-show="!sending">Отправить заявку</span>
-                        <span x-show="sending">Отправка...</span>
-                    </button>
-
-                    <div x-show="submitted" class="text-center py-4 text-green-400">
-                        ✓ Заявка отправлена! Отвечу в течение пары часов.
-                    </div>
-
-                    <p x-show="errors.submit" x-text="errors.submit" class="text-red-400 text-sm text-center"></p>
-                </form>
-
-                <div class="mt-6 pt-6 border-t border-white/10 text-center">
-                    <p class="text-sm text-slate-400 mb-3">Или напишите напрямую:</p>
-                    <a href="https://t.me/viktorystel" target="_blank"
-                        class="text-vibe-400 hover:text-vibe-300 font-semibold"><span
-                            data-c="telegram">@viktorystel</span> в Telegram →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reviews Section -->
-    <section id="reviews" style="padding:60px 20px; background:#0b1220;">
-        <div style="max-width:800px; margin:0 auto;">
-            <h2 style="font-size:2em; text-align:center; margin-bottom:30px; color:#ffffff;">Отзывы</h2>
-            <div style="background:#1e293b; border:1px solid #334155; border-radius:16px; padding:30px;">
-                <p style="font-size:1.1em; color:#e2e8f0; line-height:1.6;">«Виктор, я восхищаюсь твоей работой! Ты
-                    прекрасный специалист и делатель своего дела! Буду тебя обязательно рекомендовать и давать твой
-                    аккаунт. Будем на связи!»</p>
-                <p style="margin-top:15px; color:#94a3b8;">— Любовь Кодик, организатор женской христианской конференции,
-                    Гродно</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-white/10 py-8">
-        <div
-            class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div class="text-sm text-slate-400">© 2026 Виктор. Создание сайтов для бизнеса по всей Беларуси.</div>
-            <div class="flex gap-6 flex-wrap justify-center">
-                <a href="https://t.me/viktorystel" target="_blank"
-                    class="text-sm text-vibe-400 hover:text-vibe-300 transition font-semibold">📨 Telegram</a>
-                <a href="offer.html" class="text-sm text-slate-400 hover:text-white transition">Условия работы</a>
-                <a href="privacy.html" class="text-sm text-slate-400 hover:text-white transition">Политика
-                    конфиденциальности</a>
-                <a href="#hero" class="text-sm text-slate-400 hover:text-white transition">Наверх ↑</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Контент из Google-таблицы -->
-    <script>
-        (function () {
-            const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4td5bxiZkS38JWiDecNiA86AanaHNaooNyXgwssgajTELOIV_ShNPX1mzbRtRVLEDKNtGEq30rVMK/pub?output=tsv';
-            function apply(d) {
-                for (const k in d)
-                    document.querySelectorAll('[data-c="' + k + '"]').forEach(el => el.textContent = d[k]);
-            }
-            function parse(t) {
-                const o = {};
-                t.trim().split('\n').forEach(r => {
-                    let i = r.indexOf('\t'); if (i < 0) i = r.indexOf(',');
-                    if (i > 0) {
-                        let k = r.slice(0, i).trim(), v = r.slice(i + 1).trim();
-                        if (v.startsWith('"') && v.endsWith('"')) v = v.slice(1, -1).replace(/""/g, '"');
-                        o[k] = v;
-                    }
-                });
-                return o;
-            }
-            function fromJSON() {
-                fetch('content.json').then(r => r.json()).then(apply).catch(() => { });
-            }
-            fetch(SHEET_URL).then(r => { if (!r.ok) throw 0; return r.text(); })
-                .then(t => apply(parse(t))).catch(fromJSON);
-        })();
-    </script>
-
-    <!-- Динамическая конвертация BYN → RUB по курсу НБРБ -->
-    <script>
-        (function () {
-            const MARKUP = 1.03;
-            function updateRubPrices(rate) {
-                document.querySelectorAll('[data-rub]').forEach(el => {
-                    const byn = parseFloat(el.getAttribute('data-rub'));
-                    const rub = Math.round(byn * rate * MARKUP / 50) * 50;
-                    el.textContent = '≈ от ' + rub.toLocaleString('ru-RU') + ' ₽';
-                });
-            }
-            fetch('https://www.nbrb.by/api/exrates/rates/456?periodicity=0')
-                .then(r => r.json())
-                .then(data => {
-                    const rubPer100 = data.Cur_OfficialRate;
-                    const rate = 100 / rubPer100;
-                    updateRubPrices(rate);
-                })
-                .catch(() => { });
-        })();
-    </script>
-
-</body>
-
-</html>
+                            const message = f.querySelector('[name=message]').value
